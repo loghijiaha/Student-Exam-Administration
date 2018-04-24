@@ -16,7 +16,7 @@ export class LoginpageComponent {
         alert('Enter your password and username');
         console.log('invalid');
     } else {
-      this.http.post('http://10.10.28.98:8082/auth', {index: username, pw: password})
+      this.http.post('http://localhost:4200/auth', {index: username, pw: password})
         .subscribe(
           res => {
             localStorage.setItem('session', JSON.stringify({index: username, key: res['key']}));

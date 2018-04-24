@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { BackendServiceService} from './backend-service.service';
 import { HomeComponent } from './homepage/home/home.component';
 import { ProfileComponent } from './homepage/profile/profile.component';
 import { NotificationComponent } from './homepage/notification/notification.component';
@@ -42,7 +41,7 @@ const ROUTES: Route[] = [
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [BackendServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

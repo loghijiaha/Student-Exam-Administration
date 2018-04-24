@@ -1,0 +1,12 @@
+<div class="login">
+
+    <div >
+      <label for="username">Username</label><br><br>
+      <input required="" type="text" #username class="form-control" id="username" placeholder="Username" ><br>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label><br><br>
+      <input required="" type="password" #password class="form-control" id="password" placeholder="Password"><br>
+    </div>
+    <button (click)="login(username.value, password.value)" class="btn btn-default"> Login</button>
+</div>

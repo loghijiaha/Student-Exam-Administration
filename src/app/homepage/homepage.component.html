@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style src='./homepage.component.css'>
+  </style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href='/home/home'>Home</a></li>
+  <li><a href="/home/profile">Profile</a></li>
+  <li><a href="/home/notification">Notifications</a></li>
+  <li><a href="/home/contact">Contact</a></li>
+  <li style="float: right "><a href="/login"  >Logout</a></li>
+  <li style="float: right " ><a href="" >You: {{index}}</a></li>
+
+</ul>
+<h1>Name: {{name}}</h1>
+<h2>Account Type: {{accounttype}}</h2>
+<router-outlet></router-outlet>
+</body>
+</html>

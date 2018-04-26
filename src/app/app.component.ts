@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   status: String;
-  title = 'Student and Exam Management System';
 }

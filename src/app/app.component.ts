@@ -1,9 +1,36 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
+import {UserService} from './shared/user.service';
+import {User} from './shared/user.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  status: String;
+export class AppComponent  implements OnInit {
+  username: string;
+  isLoggedIn: boolean;
+  log: string;
+  badge: number;
+  user: User;
+  constructor(private service: UserService) {
+    this.user = this.service.user;
+    this.badge = 5;
+    this.username = this.service.user._FirstName;
+    this.isLoggedIn = this.service.isLoggedIn;
+    console.log(this.isLoggedIn);
+  }
+  clear() {
+    this.badge = null ;
+  }
+logout() {
+    this.isLoggedIn = false;
+}
+ngOnInit() {
+  if (this.service.user.isLoggedIn) {
+    this.log = 'Logout';
+  } else {
+    this.log = 'Login';
+  }
+}
+
 }

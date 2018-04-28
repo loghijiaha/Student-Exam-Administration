@@ -4,7 +4,6 @@ import { Route, RouterModule} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './homepage/home/home.component';
 import { ProfileComponent } from './homepage/profile/profile.component';
@@ -20,12 +19,23 @@ import { CoursesComponent } from './homepage/home/Student/courses/courses.compon
 import { ExamsComponent } from './homepage/home/Student/exams/exams.component';
 import { PastpapersComponent } from './homepage/home/Student/pastpapers/pastpapers.component';
 import { InqueriesComponent } from './homepage/home/Student/inqueries/inqueries.component';
+import { MatTableModule, MatInputModule , MatToolbarModule } from '@angular/material';
 
 const ROUTES: Route[] = [
-  { path: 'homepage', component: HomepageComponent},
       {path : '' , component: LoginpageComponent},
       {path : 'home' , component: HomeComponent },
-      {path : 'profile' , component: ProfileComponent },
+      {path : 'profile' , component: ProfileComponent ,
+        children: [
+          { path: 'changePassword' , component: ChangePasswordComponent },
+          { path: 'courses' , component: CoursesComponent },
+          { path: 'editProfile' , component: EditProfileComponent },
+          { path: 'inqueries' , component: InqueriesComponent },
+          { path: 'pastpapers' , component: PastpapersComponent },
+          { path: 'register' , component: RegisterNewCourseComponent },
+
+          { path: 'exams' , component: ExamsComponent },
+
+        ] },
       {path : 'notification' , component: NotificationComponent},
       {path : 'contact' , component: ContactComponent },
   { path: 'login', component: LoginpageComponent},
@@ -35,7 +45,6 @@ const ROUTES: Route[] = [
   declarations: [
     AppComponent,
     LoginpageComponent,
-    HomepageComponent,
     HomeComponent,
     ProfileComponent,
     NotificationComponent,
@@ -53,7 +62,10 @@ const ROUTES: Route[] = [
     BrowserModule,
     RouterModule.forRoot(ROUTES,{ useHash: true}),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

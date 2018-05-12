@@ -9,10 +9,19 @@ import { UserService} from '../../shared/user.service';
 export class ProfileComponent implements OnInit {
   name: string;
   accounttype: string;
+  isStudent = true;
+  isLecturer = false;
+  isAdmin = false;
   constructor( userS: UserService) {
     this.name = userS.user.FirstName;
-    console.log(userS.user.FirstName);
     this.accounttype = userS.user.AccountType;
+    if ( this.accounttype === 'student'){
+      this.isStudent = true;
+    } else if (this.accounttype === 'lecturer') {
+      this.isLecturer = true;
+    } else {
+      this.isAdmin = true;
+    }
   }
 
   ngOnInit() {

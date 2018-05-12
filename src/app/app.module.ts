@@ -9,7 +9,6 @@ import { HomeComponent } from './homepage/home/home.component';
 import { ProfileComponent } from './homepage/profile/profile.component';
 import { NotificationComponent } from './homepage/notification/notification.component';
 import { ContactComponent } from './homepage/contact/contact.component';
-import { User} from './shared/user.model';
 import {UserService} from './shared/user.service';
 import { EditProfileComponent } from './homepage/home/Student/edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './homepage/home/Student/change-password/change-password.component';
@@ -20,6 +19,20 @@ import { ExamsComponent } from './homepage/home/Student/exams/exams.component';
 import { PastpapersComponent } from './homepage/home/Student/pastpapers/pastpapers.component';
 import { InqueriesComponent } from './homepage/home/Student/inqueries/inqueries.component';
 import { MatTableModule, MatInputModule , MatToolbarModule } from '@angular/material';
+import { PdfViewerModule} from 'ng2-pdf-viewer';
+import { RecorrectionRequestComponent } from './homepage/home/Student/recorrection-request/recorrection-request.component';
+import { RequestRepeatComponent } from './homepage/home/Student/request-repeat/request-repeat.component';
+import { StudentDetailsComponent } from './homepage/home/Lecturer/student-details/student-details.component';
+import { AddCaComponent } from './homepage/home/Lecturer/add-ca/add-ca.component';
+import { GradeCaComponent } from './homepage/home/Lecturer/grade-ca/grade-ca.component';
+import { AddResultsComponent } from './homepage/home/Lecturer/add-results/add-results.component';
+import { AddMessagesComponent } from './homepage/home/Lecturer/add-messages/add-messages.component';
+import { ViewMessagesComponent } from './homepage/home/Lecturer/view-messages/view-messages.component';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule, MatNativeDateModule , MatFormFieldModule} from '@angular/material';
+import { CommonModule} from '@angular/common';
+import { DatePipe } from '@angular/common';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent},
@@ -32,8 +45,17 @@ const ROUTES: Route[] = [
           { path: 'inqueries' , component: InqueriesComponent },
           { path: 'pastpapers' , component: PastpapersComponent },
           { path: 'register' , component: RegisterNewCourseComponent },
-
+          { path: 'results' , component: ResultsComponent},
+          { path: 'requestRepeat' , component: RequestRepeatComponent},
+          { path: 'recorrection' , component: RecorrectionRequestComponent},
           { path: 'exams' , component: ExamsComponent },
+          { path: 'addCA' , component: AddCaComponent},
+          { path: 'addMessage' , component: AddMessagesComponent},
+          { path: 'addResult' , component: AddResultsComponent},
+          { path: 'gradeCA' , component: GradeCaComponent},
+          { path: 'viewMessage' , component: ViewMessagesComponent},
+          { path: 'studentDetails' , component: StudentDetailsComponent},
+
 
         ] },
       {path : 'notification' , component: NotificationComponent},
@@ -57,6 +79,14 @@ const ROUTES: Route[] = [
     ExamsComponent,
     PastpapersComponent,
     InqueriesComponent,
+    RecorrectionRequestComponent,
+    RequestRepeatComponent,
+    StudentDetailsComponent,
+    AddCaComponent,
+    GradeCaComponent,
+    AddResultsComponent,
+    AddMessagesComponent,
+    ViewMessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -65,9 +95,15 @@ const ROUTES: Route[] = [
     HttpClientModule,
     MatToolbarModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,  PdfViewerModule, FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [UserService],
+  exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
+  providers: [UserService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,28 @@
 
 <div style="width: 100%; margin-left: 1cm; margin-top: 1cm" >
   <div class="list-group-item" style="float:left; width: 20%" >
+<!--
+    common
+-->
     <h5><a  routerLink='editProfile'>Edit profile</a></h5>
     <h5><a   routerLink='changePassword'>Change password</a></h5>
-    <h5><a   routerLink='register'>Register new course</a></h5>
-    <h5><a   routerLink="pastpapers">Past Papers</a></h5>
+<!--
+    student
+-->
+    <h5><a  [hidden]="!isStudent" routerLink='register'>Register new course</a></h5>
+    <h5><a  [hidden]="!isStudent" routerLink="results">Results</a></h5>
+    <h5><a  [hidden]="!isStudent" routerLink="pastpapers">Past Papers</a></h5>
+    <h5><a   [hidden]="!isStudent"routerLink="recorrection">Request fo recorrecction</a></h5>
+    <h5><a  [hidden]="!isStudent" routerLink="requestRepeat">Request for repeat</a></h5>
+    <h5><a   [hidden]="!isStudent" routerLink="inqueries">Inqueries</a></h5>
+   <!-- lecturer-->
+    <h5><a   [hidden]="!isLecturer" routerLink="addCA">Add new CA</a></h5>
+    <h5><a   [hidden]="!isLecturer" routerLink="addMessage">Add new Message</a></h5>
+    <h5><a   [hidden]="!isLecturer" routerLink="addResult">Add Result</a></h5>
+    <h5><a   [hidden]="!isLecturer" routerLink="gradeCA">Grade CA</a></h5>
+    <h5><a   [hidden]="!isLecturer" routerLink="viewMessage">View messages</a></h5>
+    <h5><a   [hidden]="!isLecturer" routerLink="studentDetails">Show student details</a></h5>
+
   </div>
   <div style="float:left; margin-left: 1cm">
     <router-outlet></router-outlet>

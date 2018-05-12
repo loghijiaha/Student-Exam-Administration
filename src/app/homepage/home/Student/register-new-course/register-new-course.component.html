@@ -1,0 +1,40 @@
+
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Register</legend>
+        <br>
+        <div style=" float: left">
+          <label for="select">NewCourses&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <select id="select" #select>
+            <option *ngFor="let Reg of allRegCourses">{{ Reg.modName}}</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group" style = " float: right ; margin-left: 15cm" >
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary" (click)="register(select.value)">Register</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Course list</h1>
+  <table class="table table-hover" cellspacing="5">
+    <thead>
+    <tr>
+      <th>Module Number</th>
+      <th>Course</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let course of regCourses">
+      <td>{{course.modNum}}</td>
+      <td>{{course.modName}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

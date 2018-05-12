@@ -1,0 +1,19 @@
+<div>
+  <label>PDF Viewer</label>
+  <form>
+    <select [(ngModel)]= "selectedOption" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let o of options">
+        {{o.name}}
+      </option>
+    </select>
+    <button (click)="print()">View</button>
+  </form>
+
+  <p>Selected option: {{ selectedOption }}</p>
+  <p>Button output: {{ printedOption }}</p>
+</div>
+<pdf-viewer [autoresize]="true" [src]="pdfSrc"
+            [render-text]="true"
+            style="display: block;"
+            [show-all]="false"
+></pdf-viewer>

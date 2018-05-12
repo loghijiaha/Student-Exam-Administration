@@ -1,0 +1,76 @@
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Edit Profile</legend>
+        <div>
+        <div style=" float: left">
+        <div class="form-group">
+          <label for = "inputUser">Username  </label>
+          <input style="margin: 0.5cm" type="text"
+                 id="inputUser"
+                 placeholder = "New UserName">
+        </div>
+
+        <div class="form-group">
+          <label style="float: left" >Birthday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+          <div style=" float: left">
+            <label for="day">Day &nbsp;&nbsp; </label>
+            <select [(ngModel)]= "selectedDay"  #year [ngModelOptions]="{standalone: true}" id="day" #selectMod name="first">
+              <option *ngFor="let day of days">{{day}} &nbsp;&nbsp; </option>
+            </select>
+          </div>
+          <div style=" float: left">
+            <label for="month">Month &nbsp;&nbsp; </label>
+            <select [(ngModel)]= "selectedMonth"  id="month" #selectMod name="first">
+              <option *ngFor="let month of months">{{month}} &nbsp;&nbsp; </option>
+            </select>
+          </div>
+          <div style=" float: left">
+            <label  for ="year">Year&nbsp;&nbsp; </label>
+            <select [(ngModel)]= "selectedYear"  id="year" #selectMod name="first">
+              <option *ngFor="let year of years">{{year}}</option>
+            </select>
+          </div>
+          <!--<mat-form-field >
+            <input matInput [(ngModel)]="bDay" [matDatepicker]="picker"  name=" first">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>-->
+        </div>
+          <br>
+        <div class="form-group">
+          <label for="address" >Address&nbsp;&nbsp;&nbsp;   </label>
+          <input style="margin: 0.5cm" type="text"
+                 id="address"
+                 placeholder="New address">
+        </div>
+
+        </div>
+        <div style = " float: right ; margin-left: 5cm">
+          <div class="form-group">
+            <label for = "tel">Tele-phone</label>
+            <input style="margin: 0.5cm" type="text"
+                   id="tel"
+                   placeholder = "New UserName">
+          </div>
+          <div class="form-group">
+            <label for="Email">E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input style="margin: 0.5cm" type="date"
+                   id="Email"
+                   placeholder="Update Birthday">
+          </div>
+
+
+        </div>
+        </div>
+        <div class="form-group" style = " float: right ; margin-left: 15cm" >
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>

@@ -1,18 +1,25 @@
+<p *ngIf="isValidFormSubmitted" [ngClass] = "'success'">
+  Updated submitted successfully.
+</p>
 <div class="row custom-row">
   <div class= "col-sm-5 custom-container jumbotron">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" #userForm="ngForm" (ngSubmit)="onEditSubmit(userForm)">
       <fieldset>
         <legend>Edit Profile</legend>
         <div>
         <div style=" float: left">
         <div class="form-group">
-          <label for = "inputUser">Username  </label>
+          <label for = "inputUser">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
           <input style="margin: 0.5cm" type="text"
                  id="inputUser"
+                 name="name"
+                 pattern="/^[a-zA-Z ]{1,25}$/"
                  placeholder = "New UserName">
         </div>
-
+          <div *ngIf="email.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
+            Valid Email required.
+          </div>
         <div class="form-group">
           <label style="float: left" >Birthday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
           <div style=" float: left">
@@ -48,10 +55,10 @@
         </div>
 
         </div>
-        <div style = " float: right ; margin-left: 5cm">
+        <div style = " float: right ; margin-left: 3cm">
           <div class="form-group">
             <label for = "tel">Tele-phone</label>
-            <input style="margin: 0.5cm" type="text"
+            <input style="margin: 0.5cm" type="text" (keypress)="keyPressTel($event)"
                    id="tel"
                    placeholder = "New UserName">
           </div>
@@ -59,7 +66,13 @@
             <label for="Email">E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input style="margin: 0.5cm" type="date"
                    id="Email"
-                   placeholder="Update Birthday">
+                   name ="email" [ngModel]="user.Email"
+                   required [pattern]="emailPattern"
+                   #email="ngModel"
+                   placeholder="Update Email">
+            <div *ngIf="email.errors && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
+                Valid Email required.
+            </div>
           </div>
 
 
@@ -67,7 +80,7 @@
         </div>
         <div class="form-group" style = " float: right ; margin-left: 15cm" >
           <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="Submit" class="btn btn-primary">Submit</button>
         </div>
 
       </fieldset>

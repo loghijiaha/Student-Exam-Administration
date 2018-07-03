@@ -2,6 +2,10 @@ export class User {
   UserName: string;
   Key: string;
   FirstName: string;
+  private _Birthday: string;
+  private _Address: string;
+  private _Tel_phone: string;
+  private _Email: string;
   AccountType: string;
   DisplayTab: string[];
   isLoggedIn: boolean;
@@ -15,6 +19,22 @@ export class User {
     } else {
       this.DisplayTab = ['home', 'profile' , 'notification', 'contact' , 'ji' ];
     }
+  }
+
+  get Birthday(): string {
+    return this._Birthday;
+  }
+
+  get Address(): string {
+    return this._Address;
+  }
+
+  get Tel_phone(): string {
+    return this._Tel_phone;
+  }
+
+  get Email(): string {
+    return this._Email;
   }
 
   get _UserName(): string {

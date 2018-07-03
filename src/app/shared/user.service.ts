@@ -4,7 +4,7 @@ import {User} from './user.model';
 import { Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
+//hello
 @Injectable()
 export class UserService {
   rootUrl = 'http://localhost:8082/';

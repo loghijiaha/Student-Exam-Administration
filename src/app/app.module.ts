@@ -81,8 +81,7 @@ const ROUTES: Route[] = [
     RecorrectionRequestComponent,
     RequestRepeatComponent,
     StudentDetailsComponent,
-    AddCaComponent,
-    GradeCaComponent,
+
     AddResultsComponent,
     AddMessagesComponent,
     ViewMessagesComponent,

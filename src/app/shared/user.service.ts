@@ -25,35 +25,35 @@ export class UserService {
     localStorage.removeItem(this.cred['key']);
     this.isLoggedIn = false;
   }
-  public login( username, password) {
+  public async login( username, password) {
     if (username === '' && password === '') {
       alert('Enter your password and username');
       console.log('invalid');
     } else {
-      this.http.post(this.rootUrl + 'auth', {index: username, pw: password})
-        .subscribe(
-          res => {
-            this.isLoggedIn = true;
-            this.user.isLoggedIn = true;
-            localStorage.setItem('session', JSON.stringify({index: username, key: res['key']}));
-            this.router.navigate(['home']);
-            console.log(this.log);
-          },
-          err => {
-            console.log('err');
-            alert('Username and Password are not matching');
-          }
-        );
-      this.cred = JSON.parse(localStorage.getItem('session'));
-      console.log(this.cred['key']);
-      this.getInfo(this.cred['index'], this.cred['key'])
-        .subscribe(res => {
-          const body = res;
-          this.user.FirstName = body['name'];
-          this.user.AccountType = body['accountType'];
-          this.user.Key = body['key'];
-          this.user.UserName = body['un'];
-        });
+
+      try {
+        let res = await this.http.post(this.rootUrl + 'auth', {index: username, pw: password}).toPromise();
+        this.isLoggedIn = true;
+        this.user.isLoggedIn = true;
+        localStorage.setItem('session', JSON.stringify({index: username, key: res['key']}));
+        localStorage.setItem('un', username);
+        localStorage.setItem('key', res['key']);
+        this.router.navigate(['home']);
+        this.cred = JSON.parse(localStorage.getItem('session'));
+        console.log(this.cred['key']);
+        this.getInfo(this.cred['index'], this.cred['key'])
+          .subscribe(res => {
+            const body = res;
+            this.user.FirstName = body['name'];
+            this.user.AccountType = body['accountType'];
+            this.user.Key = body['key'];
+            this.user.UserName = body['un'];
+          });
+      }
+      catch (e) {
+        console.log('err');
+        alert('Username and Password are not matching');
+      }
     }
   }
   public getPastpaper( year) {
@@ -68,6 +68,19 @@ export class UserService {
     const formData: FormData = new FormData();
     formData.append('filekey', fileToUpload , fileToUpload.name);
     return this.http.post( endpoint , formData).map(() => { return true} );
+  }
+  public async changePass(old,neww) {
+
+    let res = await this.http.post(this.rootUrl + 'changePass', {
+      index: localStorage.getItem('un'),
+      key: localStorage.getItem('key'),
+      old:old,
+      new:neww
+    }).toPromise();
+
+    if (res['result'] == 200)return true;
+    return false;
+
   }
 }
 

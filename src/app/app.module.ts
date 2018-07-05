@@ -32,6 +32,7 @@ import { CommonModule} from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth.guard';
+import {ToastrModule} from 'ngx-toastr';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent},
@@ -83,8 +84,6 @@ const ROUTES: Route[] = [
     AddResultsComponent,
     AddMessagesComponent,
     ViewMessagesComponent,
-    AddPastpaperComponent,
-    RegisterNewStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +97,8 @@ const ROUTES: Route[] = [
     MatNativeDateModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot()
   ],
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
   providers: [UserService, DatePipe, AuthGuard],

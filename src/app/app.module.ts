@@ -23,8 +23,6 @@ import { PdfViewerModule} from 'ng2-pdf-viewer';
 import { RecorrectionRequestComponent } from './homepage/home/Student/recorrection-request/recorrection-request.component';
 import { RequestRepeatComponent } from './homepage/home/Student/request-repeat/request-repeat.component';
 import { StudentDetailsComponent } from './homepage/home/Lecturer/student-details/student-details.component';
-import { AddCaComponent } from './homepage/home/Lecturer/add-ca/add-ca.component';
-import { GradeCaComponent } from './homepage/home/Lecturer/grade-ca/grade-ca.component';
 import { AddResultsComponent } from './homepage/home/Lecturer/add-results/add-results.component';
 import { AddMessagesComponent } from './homepage/home/Lecturer/add-messages/add-messages.component';
 import { ViewMessagesComponent } from './homepage/home/Lecturer/view-messages/view-messages.component';
@@ -52,10 +50,8 @@ const ROUTES: Route[] = [
           { path: 'requestRepeat' , component: RequestRepeatComponent},
           { path: 'recorrection' , component: RecorrectionRequestComponent},
           { path: 'exams' , component: ExamsComponent },
-          { path: 'addCA' , component: AddCaComponent},
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'addResult' , component: AddResultsComponent},
-          { path: 'gradeCA' , component: GradeCaComponent},
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
 

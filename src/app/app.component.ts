@@ -8,29 +8,25 @@ import {User} from './shared/user.model';
 })
 export class AppComponent  implements OnInit {
   username: string;
-  isLoggedIn: boolean;
-  log: string;
+  isLoggedIn = false;
   badge: number;
   user: User;
+  public log: String;
   constructor(private service: UserService) {
     this.user = this.service.user;
     this.badge = 5;
     this.username = this.service.user._FirstName;
-    this.isLoggedIn = this.service.isLoggedIn;
-    console.log(this.isLoggedIn);
+    this.isLoggedIn = this.service._isLoggedIn;
   }
   clear() {
     this.badge = null ;
   }
 logout() {
-    this.isLoggedIn = false;
+  this.isLoggedIn = this.service._isLoggedIn;
+  this.service.logout();
 }
 ngOnInit() {
-  if (this.service.user.isLoggedIn) {
-    this.log = 'Logout';
-  } else {
-    this.log = 'Login';
-  }
+
 }
 
 }

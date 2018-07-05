@@ -10,6 +10,7 @@ export class User {
   DisplayTab: string[];
   isLoggedIn: boolean;
   public constructor() {
+    this.isLoggedIn = false;
     if (this.AccountType === 'admin') {
       this.DisplayTab = ['home', 'profile'];
     } else if (this.AccountType === 'student') {

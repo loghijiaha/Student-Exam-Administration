@@ -33,11 +33,13 @@ import {MatDatepickerModule, MatNativeDateModule , MatFormFieldModule} from '@an
 import { CommonModule} from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthGuard} from './auth.guard';
+import { AddPastpaperComponent} from './homepage/home/Lecturer/add-pastpaper/add-pastpaper.component';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent},
-      {path : 'home' , component: HomeComponent },
-      {path : 'profile' , component: ProfileComponent ,
+      {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
+      {path : 'profile' , component: ProfileComponent , canActivate: [AuthGuard],
         children: [
           { path: 'changePassword' , component: ChangePasswordComponent },
           { path: 'courses' , component: CoursesComponent },
@@ -58,10 +60,10 @@ const ROUTES: Route[] = [
 
 
         ] },
-      {path : 'notification' , component: NotificationComponent},
-      {path : 'contact' , component: ContactComponent },
+      {path : 'notification' , component: NotificationComponent, canActivate: [AuthGuard]},
+      {path : 'contact' , component: ContactComponent , canActivate: [AuthGuard]},
   { path: 'login', component: LoginpageComponent},
-]
+];
 
 @NgModule({
   declarations: [
@@ -86,11 +88,12 @@ const ROUTES: Route[] = [
     GradeCaComponent,
     AddResultsComponent,
     AddMessagesComponent,
-    ViewMessagesComponent
+    ViewMessagesComponent,
+    AddPastpaperComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES,{ useHash: true}),
+    RouterModule.forRoot(ROUTES),
     AppRoutingModule,
     HttpClientModule,
     MatToolbarModule,
@@ -100,10 +103,10 @@ const ROUTES: Route[] = [
     MatNativeDateModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
-  providers: [UserService, DatePipe],
+  providers: [UserService, DatePipe, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

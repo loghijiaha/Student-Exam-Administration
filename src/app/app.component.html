@@ -12,8 +12,8 @@
   <li [hidden]="!user.DisplayTab.includes('profile')" ><a routerLink="profile" class="label label-default">Profile</a></li>
   <li [hidden]="!user.DisplayTab.includes('notification')" ><a (click)="clear()" routerLink="notification" class="label label-default">Notifications<span class="badge">{{badge}}</span></a></li>
   <li [hidden]="!user.DisplayTab.includes('contact')" ><a routerLink="contact" class="label label-default">Contact</a></li>
-  <li class="label label-default" style="float: right "><a href="/login"  *ngIf="isLoggedIn" (click)="logout()">Logout</a></li>
-  <li class="label label-default" style="float: right "><a href="/login"  *ngIf="!isLoggedIn" >Login</a></li>
+  <li class="label label-default" style="float: right "><a href="/login"  *ngIf="user._isLoggedIn" >Logout</a></li>
+  <li class="label label-default" style="float: right "><a href="/login"  *ngIf="!user._isLoggedIn" >Login</a></li>
 
   <li class="label label-default" [hidden]="!isLoggedIn" style="float: right " ><a href="" >You: {{username}}</a></li>
 

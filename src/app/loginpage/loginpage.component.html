@@ -9,8 +9,11 @@
 
     <div >
       <label for="username">Username</label><br><br>
-      <input required="" type="text" #username class="form-control" id="username" placeholder="Username" ><br>
+      <input required="" type="text" minlength="7" maxlength="7" #username class="form-control" id="username" placeholder="Username" ><br>
     </div>
+<div *ngIf="username.errors.minlength || username.touched" class="alert alert-danger">
+  You have to enter correct username
+</div>
     <div class="form-group">
       <label for="password">Password</label><br><br>
       <input required="" type="password" #password (keyup.enter)="login(username.value, password.value)" class="form-control" id="password" placeholder="Password"><br>

@@ -9,6 +9,7 @@ export class User {
   AccountType: string;
   DisplayTab: string[];
   isLoggedIn: boolean;
+  SubscribedModules: string[];
   public constructor() {
     this.isLoggedIn = false;
     if (this.AccountType === 'admin') {

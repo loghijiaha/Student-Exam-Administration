@@ -35,7 +35,7 @@ import {AuthGuard} from './auth.guard';
 import {ToastrModule} from 'ngx-toastr';
 
 const ROUTES: Route[] = [
-      {path : '' , component: LoginpageComponent},
+      {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
       {path : 'profile' , component: ProfileComponent , canActivate: [AuthGuard],
         children: [
@@ -87,7 +87,7 @@ const ROUTES: Route[] = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES, {onSameUrlNavigation: 'reload'}),
     AppRoutingModule,
     HttpClientModule,
     MatToolbarModule,

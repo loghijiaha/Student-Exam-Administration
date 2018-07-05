@@ -9,12 +9,11 @@ export class UserService {
   rootUrl = 'http://localhost:8082/';
   public  user: User;
   cred: any;
-  isLoggedIn = false;
   public log = 'Login'
   constructor(private http: HttpClient, private router: Router ) {this.user = new  User();
   }
-  get _isLoggedIn(): boolean {
-    return this.isLoggedIn;
+  public _isLoggedIn(): boolean {
+    return localStorage.getItem('un') != null;
   }
   public getInfo(index, key) {
     return this.http.post(this.rootUrl + 'userInfo', { index: index, key : key });
@@ -22,8 +21,11 @@ export class UserService {
   }
   // For student
   public logout() {
-    localStorage.removeItem(this.cred['key']);
-    this.isLoggedIn = false;
+    localStorage.removeItem('session');
+    localStorage.removeItem('key');
+    localStorage.removeItem('un');
+    console.log('removed');
+    this.router.navigate(['login']);
   }
   public async login( username, password) {
     if (username === '' && password === '') {
@@ -33,8 +35,6 @@ export class UserService {
 
       try {
         let res = await this.http.post(this.rootUrl + 'auth', {index: username, pw: password}).toPromise();
-        this.isLoggedIn = true;
-        this.user.isLoggedIn = true;
         localStorage.setItem('session', JSON.stringify({index: username, key: res['key']}));
         localStorage.setItem('un', username);
         localStorage.setItem('key', res['key']);

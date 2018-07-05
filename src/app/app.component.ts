@@ -8,7 +8,6 @@ import {User} from './shared/user.model';
 })
 export class AppComponent  implements OnInit {
   username: string;
-  isLoggedIn = false;
   badge: number;
   user: User;
   public log: String;
@@ -16,14 +15,13 @@ export class AppComponent  implements OnInit {
     this.user = this.service.user;
     this.badge = 5;
     this.username = this.service.user._FirstName;
-    this.isLoggedIn = this.service._isLoggedIn;
   }
   clear() {
     this.badge = null ;
   }
 logout() {
-  this.isLoggedIn = this.service._isLoggedIn;
   this.service.logout();
+  console.log("hello");
 }
 ngOnInit() {
 

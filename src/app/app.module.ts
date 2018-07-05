@@ -32,8 +32,6 @@ import { CommonModule} from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth.guard';
-import { AddPastpaperComponent} from './homepage/home/Lecturer/add-pastpaper/add-pastpaper.component';
-import { RegisterNewStudentComponent } from './homepage/home/Admin/register-new-student/register-new-student.component';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent},

@@ -1,0 +1,48 @@
+<p>
+  create-module works!
+</p>
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Create New Module</legend>
+        <br>
+        <div style=" float: left">
+          <label for="select">Semester&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <select id="select" #select>
+            <option *ngFor="let Sem of allSemesters">{{ Sem.semester}}</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="batch" >Batch&nbsp;&nbsp;&nbsp;   </label>
+          <input style="margin: 0.5cm" type="text"
+                 id="batch"
+                 placeholder="nBatch">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="title" >Title&nbsp;&nbsp;&nbsp;   </label>
+          <input style="margin: 0.5cm" type="text"
+                 id="title"
+                 placeholder="nTitle">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="mCode" >Module Code&nbsp;&nbsp;&nbsp;   </label>
+          <input style="margin: 0.5cm" type="text"
+                 id="mCode"
+                 placeholder="nmCode">
+        </div>
+        <br>
+        <div class="form-group" style = " float: right ; margin-left: 15cm" >
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="save" class="btn btn-primary" (click)="save(select.value)">Save</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+
+

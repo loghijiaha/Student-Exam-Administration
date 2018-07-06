@@ -35,12 +35,14 @@ import {AuthGuard} from './auth.guard';
 import {ToastrModule} from 'ngx-toastr';
 import { ModuleDetailsComponent } from './homepage/home/Lecturer/module-details/module-details.component';
 import { EditResultComponent } from './homepage/home/Lecturer/edit-result/edit-result.component';
+import {AddPastpaperComponent} from './homepage/home/Lecturer/add-pastpaper/add-pastpaper.component';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
       {path : 'profile' , component: ProfileComponent , canActivate: [AuthGuard],
         children: [
+          // student
           { path: 'changePassword' , component: ChangePasswordComponent },
           { path: 'courses' , component: CoursesComponent },
           { path: 'editProfile' , component: EditProfileComponent },
@@ -51,10 +53,13 @@ const ROUTES: Route[] = [
           { path: 'requestRepeat' , component: RequestRepeatComponent},
           { path: 'recorrection' , component: RecorrectionRequestComponent},
           { path: 'exams' , component: ExamsComponent },
+          // lecturer
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'addResult' , component: AddResultsComponent},
           { path: 'addMessage' , component: AddMessagesComponent},
-
+          { path: 'editResult' , component: EditResultComponent},
+          { path: 'moduleDetails' , component: ModuleDetailsComponent},
+          { path: 'addPastPaper' , component: AddPastpaperComponent},
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
 

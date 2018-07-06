@@ -137,5 +137,11 @@ export class UserService {
       return ['result']
     }
   }
+  public async getSubscribedModules(){
+    return this.http.post(this.rootUrl+'getSubscribedModules',{index: localStorage.getItem('un')}).toArray;
+  }
+  public async sendNotice(message){
+    return this.http.post(this.rootUrl+'sendNotice',{message :message});
+  }
 }
 

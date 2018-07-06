@@ -15,7 +15,7 @@
   <li class="label label-default" style="float: right " (click)="logout()"><a *ngIf="user._isLoggedIn()" >Logout</a></li>
   <li class="label label-default" style="float: right "><a href="/login"  *ngIf="!user._isLoggedIn()" >Login</a></li>
 
-  <li class="label label-default" *ngIf="user._isLoggedIn()" style="float: right " ><a href="" >You: {{user.UserName}}</a></li>
+  <li class="label label-default" *ngIf="user._isLoggedIn()" style="float: right " ><a href="" >You: {{user._UserName()}}</a></li>
 
 </ul>
 <router-outlet ></router-outlet>

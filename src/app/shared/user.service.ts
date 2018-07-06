@@ -82,6 +82,18 @@ export class UserService {
     return false;
 
   }
+  public async submitNewModule(batch,select,mCode,title){
+    let res = await this.http.post(this.rootUrl + 'createModule', {
+      batch:batch,
+      select:select,
+      mCode:mCode,
+      title:title
+
+    }).toPromise();
+
+    if (res['result'] == 200)return true;
+    return false;
+  }
 }
 
 

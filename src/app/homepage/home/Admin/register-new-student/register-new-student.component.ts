@@ -11,5 +11,5 @@ export class RegisterNewStudentComponent implements OnInit {
 
   ngOnInit() {
   }
-
+//fwffwf
 }

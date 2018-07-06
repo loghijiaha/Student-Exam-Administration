@@ -9,34 +9,31 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./create-module.component.css']
 })
 export class CreateModuleComponent implements OnInit {
-  batch: number;
+  batch: string;
   mCode: string;
   title: string;
-  select: string;
+  select: number;
 
   allSemesters  = [
-    { semester: 'S1' },
-    { semester: 'S2' },
-    { semester: 'S3' },
-    { semester: 'S4' },
-    { semester: 'S5' },
-    { semester: 'S6' },
-    { semester: 'S7' },
-    { semester: 'S8' },
+    { semester: 1 },
+    { semester: 2 },
+    { semester: 3 },
+    { semester: 4 },
+    { semester: 5 },
+    { semester: 6 },
+    { semester: 7 },
+    { semester: 8 },
   ]
-//vrvvvrer
-   moduleDetails = [
-    {batch:this.batch}, {semester:this.select},
-    {nmCode:this.mCode}, {title:this.title}
-  ]
+
   constructor(private http: HttpClient,private service: UserService) {
 
   }
+
   async save(batch,select,mCode,title) {
     if(await this.service.submitNewModule(batch,select,mCode,title)){
 
-    //Probable cause of unknown errors because selct is chosen from a drop down menu
-    this.select = "";
+    //Probable cause of unknown errors because select is chosen from a drop down menu
+    this.batch = "";
     this.mCode = "";
     this.title = "";
     }

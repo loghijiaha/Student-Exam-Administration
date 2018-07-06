@@ -86,8 +86,8 @@ export class UserService {
   public async submitNewModule(batch,select,mCode,title){
     let res = await this.http.post(this.rootUrl + 'createModule', {
       batch:batch,
-      select:select,
-      mCode:mCode,
+      semester:select,
+      moduleCode:mCode,
       title:title
 
     }).toPromise();
@@ -109,6 +109,32 @@ export class UserService {
 
     if (res['result'] == 200)return true;
     return false;
+  }
+
+  public async submitExamDetails(moduleCode,date,start_time,venue){
+    let res = await this.http.post(this.rootUrl + 'createExam', {
+        _id:moduleCode,
+        date:date,
+        start_time:start_time,
+        venue:venue,
+
+      }
+
+    ).toPromise();
+
+    if (res['result'] == 200)return true;
+    return false;
+  }
+
+  public async getAllModulesF(){
+    let res = await this.http.post(this.rootUrl + 'getAllModules', {
+
+    }).toPromise();
+
+    //The type check might be redundant and errornous
+    if (res['result'].isTypeOf([])){
+      return ['result']
+    }
   }
 }
 

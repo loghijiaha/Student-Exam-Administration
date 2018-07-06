@@ -18,6 +18,7 @@ export class EditProfileComponent implements OnInit {
   years: number[] = [];
   days: number[] = [];
   user = new User();
+
   constructor( ) {
     for (let i = 1; i < 30 ; i++) {
       this.days.push(i);

@@ -33,6 +33,7 @@ import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth.guard';
 import {ToastrModule} from 'ngx-toastr';
+import { RegisterNewLecturerComponent } from './register-new-lecturer/register-new-lecturer.component';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
@@ -84,6 +85,7 @@ const ROUTES: Route[] = [
     AddResultsComponent,
     AddMessagesComponent,
     ViewMessagesComponent,
+    RegisterNewLecturerComponent,
   ],
   imports: [
     BrowserModule,

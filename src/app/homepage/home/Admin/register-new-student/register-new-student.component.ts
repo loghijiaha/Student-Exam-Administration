@@ -10,14 +10,9 @@ import {toPromise} from 'rxjs/operator/toPromise';
   styleUrls: ['./register-new-student.component.css']
 })
 export class RegisterNewStudentComponent implements OnInit {
-  batch:number
-  selection:string
-  index:string
+  pass:string
 
-  allAccTypes = [
-    {accType:"Student"},
-    {accType:"Lecturer"},
-    ]
+  index:string
 
   constructor(private http: HttpClient, private service: UserService) { }
 
@@ -27,7 +22,7 @@ export class RegisterNewStudentComponent implements OnInit {
   async createAccount(pass,acType,index){
 
       if(await this.service.submitAccountDetails(pass,acType,index)){
-        this.selection = "";
+        this.pass = "";
         this.index = "";
       }
 

@@ -9,7 +9,7 @@ import { UserService} from '../../shared/user.service';
 export class ProfileComponent implements OnInit {
   name: string;
   accounttype: string;
-  isStudent = true;
+  isStudent = false;
   isLecturer = false;
   isAdmin = false;
   constructor( userS: UserService) {

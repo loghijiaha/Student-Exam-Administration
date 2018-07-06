@@ -34,6 +34,7 @@ export class UserService {
     } else {
 
       try {
+        console.log("working)");
         let res = await this.http.post(this.rootUrl + 'auth', {index: username, pw: password}).toPromise();
         localStorage.setItem('session', JSON.stringify({index: username, key: res['key']}));
         localStorage.setItem('un', username);

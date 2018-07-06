@@ -33,6 +33,8 @@ import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth.guard';
 import {ToastrModule} from 'ngx-toastr';
+import { ModuleDetailsComponent } from './homepage/home/Lecturer/module-details/module-details.component';
+import { EditResultComponent } from './homepage/home/Lecturer/edit-result/edit-result.component';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
@@ -51,6 +53,8 @@ const ROUTES: Route[] = [
           { path: 'exams' , component: ExamsComponent },
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'addResult' , component: AddResultsComponent},
+          { path: 'addMessage' , component: AddMessagesComponent},
+
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
 
@@ -84,6 +88,8 @@ const ROUTES: Route[] = [
     AddResultsComponent,
     AddMessagesComponent,
     ViewMessagesComponent,
+    ModuleDetailsComponent,
+    EditResultComponent,
   ],
   imports: [
     BrowserModule,

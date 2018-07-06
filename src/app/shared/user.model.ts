@@ -8,10 +8,8 @@ export class User {
   private _Email: string;
   AccountType: string;
   DisplayTab: string[];
-  isLoggedIn: boolean;
   SubscribedModules: string[];
   public constructor() {
-    this.isLoggedIn = false;
     if (this.AccountType === 'admin') {
       this.DisplayTab = ['home', 'profile'];
     } else if (this.AccountType === 'student') {
@@ -59,7 +57,7 @@ export class User {
     return this.DisplayTab;
   }
 
-  get _isLoggedIn(): boolean {
-    return this.isLoggedIn;
+  public  _isLoggedIn(): boolean {
+    return localStorage.getItem('un') != null;
   }
 }

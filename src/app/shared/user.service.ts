@@ -4,6 +4,7 @@ import {User} from './user.model';
 import { Router} from '@angular/router';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
+import index from '@angular/cli/lib/cli';
 @Injectable()
 export class UserService {
   rootUrl = 'http://localhost:8082/';
@@ -94,6 +95,20 @@ export class UserService {
     if (res['result'] == 200)return true;
     return false;
   }
-}
 
+
+  public async submitAccountDetails(pass,acType,index){
+    let res = await this.http.post(this.rootUrl + 'createUser', {
+      pw:pass,
+      accountType:acType,
+      id:index
+
+    }
+
+    ).toPromise();
+
+    if (res['result'] == 200)return true;
+    return false;
+  }
+}
 

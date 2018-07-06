@@ -5,36 +5,28 @@
         <legend>Create New Module</legend>
         <br>
         <div style=" float: left">
-          <label Select>Semester&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <select [(ngModel)] = "select">
-            <option *ngFor="let Sem of allSemesters">{{ Sem.semester}}</option>
-          </select>
+          <label>Account Type&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label>Student</label>
         </div>
         <br>
         <div class="form-group">
-          <label for="batch" >Batch&nbsp;&nbsp;&nbsp;   </label>
-          <input style="margin: 0.5cm" type="text" [(ngModel)] = "batch"
-                 id="batch"
-                 placeholder="nBatch">
+          <label for="password" >Batch&nbsp;&nbsp;&nbsp;   </label>
+          <input style="margin: 0.5cm" type="password" [(ngModel)] = "pass"
+                 id="password"
+                 placeholder="nPass">
         </div>
         <br>
         <div class="form-group">
-          <label for="title" >Title&nbsp;&nbsp;&nbsp;   </label>
-          <input style="margin: 0.5cm" type="text" [(ngModel)] = "title"
-                 id="title"
-                 placeholder="nTitle">
+          <label for="index" >Title&nbsp;&nbsp;&nbsp;   </label>
+          <input style="margin: 0.5cm" type="text" [(ngModel)] = "index"
+                 id="index"
+                 placeholder="nIndex">
         </div>
-        <br>
-        <div class="form-group">
-          <label for="mCode" >Module Code&nbsp;&nbsp;&nbsp;   </label>
-          <input style="margin: 0.5cm" type="text" [(ngModel)] = "mCode"
-                 id="mCode"
-                 placeholder="nmCode">
-        </div>
+
         <br>
         <div class="form-group" style = " float: right ; margin-left: 15cm" >
           <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="save" class="btn btn-primary" (click)="save(batch,select.value,mCode,title)">Save</button>
+          <button type="submit" class="btn btn-primary" (click)="createAccount(pass,'student',index)">Create</button>
         </div>
       </fieldset>
     </form>

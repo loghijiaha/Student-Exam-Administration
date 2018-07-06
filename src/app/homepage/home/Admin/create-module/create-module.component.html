@@ -5,9 +5,9 @@
         <legend>Create New Module</legend>
         <br>
         <div style=" float: left">
-          <label Select>Semester&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label for="select">Semester&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <select [(ngModel)] = "select">
-            <option *ngFor="let Sem of allSemesters">{{ Sem.semester}}</option>
+            <option *ngFor="let Sem of allSemesters" id="select">{{ Sem.semester}}</option>
           </select>
         </div>
         <br>
@@ -34,7 +34,7 @@
         <br>
         <div class="form-group" style = " float: right ; margin-left: 15cm" >
           <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="save" class="btn btn-primary" (click)="save(batch,select.value,mCode,title)">Save</button>
+          <button type="submit" class="btn btn-primary" (click)="save(batch,select.value,mCode,title)">Save</button>
         </div>
       </fieldset>
     </form>

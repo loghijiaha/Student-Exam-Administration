@@ -34,7 +34,7 @@ export class CreateModuleComponent implements OnInit {
   }
   async save(batch,select,mCode,title) {
     if(await this.service.submitNewModule(batch,select,mCode,title)){
-    this.batch = 0;
+
     //Probable cause of unknown errors because selct is chosen from a drop down menu
     this.select = "";
     this.mCode = "";

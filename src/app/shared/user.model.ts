@@ -14,7 +14,7 @@ export class User {
       this.DisplayTab = ['home', 'profile'];
     } else if (this.AccountType === 'student') {
       this.DisplayTab = ['home', 'profile' , 'contact' , 'logout' ];
-    } else if (this.AccountType === 'staff') {
+    } else if (this.AccountType === 'lecturer') {
       this.DisplayTab = ['home', 'profile' , 'notification', 'contact' ];
     } else {
       this.DisplayTab = ['home', 'profile' , 'notification', 'contact' , 'ji' ];
@@ -37,8 +37,8 @@ export class User {
     return this._Email;
   }
 
-  get _UserName(): string {
-    return this.UserName;
+  public _UserName(): string {
+    return localStorage.getItem('un');
   }
 
   get _Key(): string {

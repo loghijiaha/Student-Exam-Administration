@@ -10,7 +10,7 @@ export class UserService {
   rootUrl = 'http://localhost:8082/';
   public  user: User;
   cred: any;
-  public log = 'Login'
+  public log = 'Login';
   constructor(private http: HttpClient, private router: Router ) {this.user = new  User();
   }
   public _isLoggedIn(): boolean {
@@ -35,6 +35,7 @@ export class UserService {
     } else {
 
       try {
+        console.log("working)");
         let res = await this.http.post(this.rootUrl + 'auth', {index: username, pw: password}).toPromise();
         localStorage.setItem('session', JSON.stringify({index: username, key: res['key']}));
         localStorage.setItem('un', username);
@@ -138,4 +139,3 @@ export class UserService {
   }
 }
 
-//geuyihiojcwjopverervr wfwf  wf wf sfe w

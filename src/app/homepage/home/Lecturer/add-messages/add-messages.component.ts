@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User} from '../../../../shared/user.model';
+import { UserService} from '../../../../shared/user.service';
+import { ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-messages',
@@ -8,12 +9,21 @@ import { User} from '../../../../shared/user.model';
 })
 export class AddMessagesComponent implements OnInit {
   public moduleName: string;
-  public moduleList: string[];
-  constructor(user: User) {
-    this.moduleList = user.SubscribedModules;
+  public moduleList: any;
+  constructor(public userServ: UserService, public toast: ToastrService) {
+    this.moduleList = userServ.getSubscribedModules();
+    console.log(this.moduleList);
   }
 
   ngOnInit() {
   }
-
+  public sendNotice(messsage) {
+    if (messsage != null) {
+      this.userServ.sendNotice(messsage);
+      this.toast.success('Successfully sent', 'Success', {positionClass: 'toast-bottom-right'});
+    }
+    else {
+      this.toast.error('Empty message', 'Error', {positionClass: 'toast-bottom-right'});
+    }
+  }
 }

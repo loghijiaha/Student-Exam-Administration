@@ -7,17 +7,16 @@
         <div style=" float: left">
 
           <select>
-            <option *ngFor="let o of moduleList">
+            <option [(ngModel)] = "moduleName" *ngFor="let o of moduleList">
               {{o}}
             </option>
           </select>
           <div class="form-group">
             <label for="dis">New Description&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</label>
-            <textarea cols="100" rows="3" id="dis"></textarea>
+            <textarea #message cols="100" rows="3" id="dis"></textarea>
           </div>
-
           <div class="form-group" style = " float: right ; margin-left: 15cm" >
-            <button type="submit" class="btn btn-primary">Broadcast</button>
+            <button (click)="sendNotice(message.value)" type="submit" class="btn btn-primary">Broadcast</button>
           </div>
         </div>
 

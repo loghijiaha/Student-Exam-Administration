@@ -9,7 +9,7 @@ export class UserService {
   rootUrl = 'http://localhost:8082/';
   public  user: User;
   cred: any;
-  public log = 'Login'
+  public log = 'Login';
   constructor(private http: HttpClient, private router: Router ) {this.user = new  User();
   }
   public _isLoggedIn(): boolean {
@@ -83,6 +83,13 @@ export class UserService {
     return false;
 
   }
+  public async getSubscribedModules(){
+    return this.http.post(this.rootUrl+'getSubscribedModules',{index: localStorage.getItem('un')}).toArray;
+  }
+  public async sendNotice(message){
+    return this.http.post(this.rootUrl+'sendNotice',{message :message});
+  }
+
 }
 
 

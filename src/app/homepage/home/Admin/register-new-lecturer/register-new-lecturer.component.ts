@@ -10,6 +10,7 @@ import {HttpClient} from '@angular/common/http';
 export class RegisterNewLecturerComponent implements OnInit {
   index:string
   pass:string
+  batch:string
 
   constructor(private http: HttpClient, private service: UserService) { }
 
@@ -18,7 +19,7 @@ export class RegisterNewLecturerComponent implements OnInit {
 
   async createAccount(pass,acType,index){
 
-    if(await this.service.submitAccountDetails(pass,acType,index)){
+    if(await this.service.submitAccountDetails(pass,acType,index,this.batch)){
       this.pass = "";
       this.index = "";
     }

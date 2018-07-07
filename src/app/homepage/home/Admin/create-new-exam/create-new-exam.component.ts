@@ -8,18 +8,23 @@ import {UserService} from '../../../../shared/user.service';
   styleUrls: ['./create-new-exam.component.css']
 })
 export class CreateNewExamComponent implements OnInit {
+  date:string
   start_time:string
   venue:string
   mCode:string
   allModules:any
-  async showAllModules(){
-    this.allModules = await this.service.getAllModulesF()
+
+
+  minDate(): Date {
+    return new Date();
+  }
+    constructor(private http:HttpClient, private service:UserService) {
 
   }
+  async showAllModules(){
+    let ses = await this.service.getAllModulesF();
+    this.allModules = ses;
 
-
-
-  constructor(private http:HttpClient, private service:UserService) {
 
   }
 
@@ -27,8 +32,8 @@ export class CreateNewExamComponent implements OnInit {
     this.showAllModules();
   }
   async create(mCode,date,start_time,venue){
-    if(await this.service.submitExamDetails(mCode,date,start_time,venue)){
-
+    if(await this.service.submitExamDetails(this.mCode,this.date,this.start_time,this.venue)){
+      this.date = "";
       this.start_time = "";
       this.venue = "";
       //Probable cause of errors by adding more options to the list

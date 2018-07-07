@@ -29,8 +29,8 @@ export class CreateModuleComponent implements OnInit {
 
   }
 //erpkfkpk[fs
-  async save(batch,select,mCode,title) {
-    if(await this.service.submitNewModule(batch,select,mCode,title)){
+  async save() {
+    if(await this.service.submitNewModule(this.batch,this.select,this.mCode,this.title)){
 
     //Probable cause of unknown errors because select is chosen from a drop down menu
     this.batch = "";

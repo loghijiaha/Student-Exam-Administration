@@ -35,6 +35,7 @@ import {AuthGuard} from './auth.guard';
 import {ToastrModule} from 'ngx-toastr';
 import { ModuleDetailsComponent } from './homepage/home/Lecturer/module-details/module-details.component';
 import { EditResultComponent } from './homepage/home/Lecturer/edit-result/edit-result.component';
+
 import { DeleteExamComponent } from './homepage/home/Admin/delete-exam/delete-exam.component';
 import { CreateModuleComponent} from './homepage/home/Admin/create-module/create-module.component';
 import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/create-new-exam.component';
@@ -43,8 +44,7 @@ import { RegisterNewLecturerComponent} from './homepage/home/Admin/register-new-
 import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-repeaters.component';
 
 
-const ROUTES
-: Route[] = [
+const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
       {path : 'profile' , component: ProfileComponent , canActivate: [AuthGuard],
@@ -66,6 +66,7 @@ const ROUTES
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'editResult' , component: EditResultComponent},
           { path: 'moduleDetails' , component: ModuleDetailsComponent},
+
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
           //admin

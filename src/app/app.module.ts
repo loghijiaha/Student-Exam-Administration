@@ -36,7 +36,8 @@ import {AuthGuard} from './auth.guard';
 import {ToastrModule} from 'ngx-toastr';
 import { ModuleDetailsComponent } from './homepage/home/Lecturer/module-details/module-details.component';
 import { EditResultComponent } from './homepage/home/Lecturer/edit-result/edit-result.component';
-
+import {User} from './shared/user.model';
+import {MatListModule} from '@angular/material';
 import { DeleteExamComponent } from './homepage/home/Admin/delete-exam/delete-exam.component';
 import { CreateModuleComponent} from './homepage/home/Admin/create-module/create-module.component';
 import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/create-new-exam.component';
@@ -69,7 +70,6 @@ const ROUTES: Route[] = [
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'editResult' , component: EditResultComponent},
           { path: 'moduleDetails' , component: ModuleDetailsComponent},
-
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
           //admin
@@ -136,10 +136,11 @@ const ROUTES: Route[] = [
     ReactiveFormsModule,
     MatCardModule,
     BrowserAnimationsModule, // required animations module
+    MatListModule,
     ToastrModule.forRoot()
   ],
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
-  providers: [UserService, DatePipe, AuthGuard],
+  providers: [UserService, DatePipe, AuthGuard,User],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

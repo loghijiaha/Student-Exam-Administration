@@ -197,5 +197,10 @@ export class UserService {
     }
     return false;
   }
+  public async getRepeatRequests(exam){
+    return await this.http.post(this.rootUrl + 'getRepeatRequests',{
+      exam:exam,
+    })
+  }
 }
 

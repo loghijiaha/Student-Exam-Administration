@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatCardModule} from '@angular/material/card';
 import { Route, RouterModule} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -42,6 +43,8 @@ import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/cre
 import { RegisterNewStudentComponent} from './homepage/home/Admin/register-new-student/register-new-student.component';
 import { RegisterNewLecturerComponent} from './homepage/home/Admin/register-new-lecturer/register-new-lecturer.component';
 import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-repeaters.component';
+import { ViewUserInquiriesComponent } from './homepage/home/Admin/view-user-inquiries/view-user-inquiries.component';
+import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/view-repeaters.component';
 
 
 const ROUTES: Route[] = [
@@ -76,6 +79,8 @@ const ROUTES: Route[] = [
           { path: 'createExam' , component: CreateNewExamComponent},
           { path: 'deleteExam' , component: DeleteExamComponent},
           { path: 'addRepeaters' , component: AddRepeatersComponent},
+          { path: 'viewRepeaters' , component: ViewRepeatersComponent},
+          { path: 'viewUserInquiries' , component: ViewUserInquiriesComponent},
 
 
         ] },
@@ -114,6 +119,8 @@ const ROUTES: Route[] = [
     RegisterNewStudentComponent,
     RegisterNewLecturerComponent,
     AddRepeatersComponent,
+    ViewUserInquiriesComponent,
+    ViewRepeatersComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,6 +134,7 @@ const ROUTES: Route[] = [
     MatNativeDateModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatCardModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot()
   ],

@@ -1,31 +1,39 @@
 <div class="row custom-row">
   <div class= "col-sm-5 custom-container jumbotron">
-    <form class="form-horizontal">
+
       <fieldset>
         <legend>Create New Exam</legend>
         <br>
-        <div style=" float: left">
-          <label for="modCode">Semester&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <div>
+          <label for="modCode">Module&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <select [(ngModel)] = "mCode">
-            <option *ngFor="let module of allModules" id="modCode">{{ module._id}}</option>
+            <option *ngFor="let module of allModules" id="modCode">{{module._id}}</option>
           </select>
         </div>
         <br>
-        <mat-form-field id="date">
-          <input #picker matInput [matDatepicker]="picker" placeholder="nDate">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker></mat-datepicker>
-        </mat-form-field>
+
+        <div class="form-group">
+          <label for="date">Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input style="margin: 0.5cm" type="date" min="2018-07-09"
+                 id="date"
+                 [(ngModel)] = "date"
+                 placeholder="Date">
+        </div>
+        <!--mat-form-field id="date">
+          <input matInput [matDatepicker]="date" placeholder="Date" [min]="minDate()">
+          <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+          <mat-datepicker #date></mat-datepicker>
+        </mat-form-field-->
         <br>
         <div class="form-group">
-          <label for="time" >Start Time&nbsp;&nbsp;&nbsp;   </label>
+          <label for="time" >Start Time&nbsp;&nbsp;   </label>
           <input style="margin: 0.5cm" type="time" [(ngModel)] = "start_time"
                  id="time"
                  placeholder="nTime">
         </div>
         <br>
         <div class="form-group">
-          <label for="venu" >Venue &nbsp;&nbsp;&nbsp;   </label>
+          <label for="venu" >Venue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </label>
           <input style="margin: 0.5cm" type="text" [(ngModel)] = "venue"
                  id="venu"
                  placeholder="nVenue">
@@ -33,9 +41,10 @@
         <br>
         <div class="form-group" style = " float: right ; margin-left: 15cm" >
           <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-primary" (click)="create(mCode,picker.value,start_time,venue)">Create</button>
+          <button type="submit" class="btn btn-primary" (click)="create(mCode,date,start_time,venue)">Create</button>
         </div>
+        <p>{{date.value}}</p>
       </fieldset>
-    </form>
+
   </div>
 </div>

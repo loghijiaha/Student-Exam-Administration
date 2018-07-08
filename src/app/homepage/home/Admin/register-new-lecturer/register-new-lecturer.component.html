@@ -1,26 +1,28 @@
 <div class="row custom-row">
   <div class= "col-sm-5 custom-container jumbotron">
-    <form class="form-horizontal">
+
       <fieldset>
         <legend>Create New Lecturer Account</legend>
         <br>
         <div style=" float: left">
-          <label>Account Type&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label>Account Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <label>Lecturer</label>
         </div>
+        <br>
+        <br>
         <br>
         <div class="form-group">
           <label for="password" >Password(Default)&nbsp;&nbsp;&nbsp;   </label>
           <input style="margin: 0.5cm" type="password" [(ngModel)] = "pass"
                  id="password"
-                 placeholder="nPass">
+                 placeholder="">
         </div>
         <br>
         <div class="form-group">
-          <label for="index" >Index Number&nbsp;&nbsp;&nbsp;   </label>
+          <label for="index" >Index Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </label>
           <input style="margin: 0.5cm" type="text" [(ngModel)] = "index"
                  id="index"
-                 placeholder="nIndex">
+                 placeholder="">
         </div>
 
         <br>
@@ -29,6 +31,6 @@
           <button type="submit" class="btn btn-primary" (click)="createAccount(pass,'lecturer',index)">Create</button>
         </div>
       </fieldset>
-    </form>
+
   </div>
 </div>

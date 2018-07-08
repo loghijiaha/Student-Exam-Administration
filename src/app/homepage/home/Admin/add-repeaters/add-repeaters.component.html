@@ -1,0 +1,27 @@
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+    <fieldset>
+      <legend>Add To Repeat List</legend>
+      <br>
+      <div class="form-group">
+        <label for="index" >Index Number&nbsp;   </label>
+        <input style="margin: 0.5cm" type="text" [(ngModel)] = "index"
+               id="index"
+               placeholder="Enter Index">
+      </div><!--vwefew-->
+      <div>
+        <label for="exam" >Exam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+        <select [(ngModel)]= "exam" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let xham of allXhams" id="exam">
+            {{xham._id}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group" style = " float: right ; margin-left: 15cm" >
+        <button type="submit" class="btn btn-primary" (click)="add(exam,index)">Add</button>
+        <button type="reset" class="btn btn-default">Cancel</button>
+      </div>
+    </fieldset>
+
+  </div>
+</div>

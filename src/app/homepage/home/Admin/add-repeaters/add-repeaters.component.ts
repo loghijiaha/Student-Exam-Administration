@@ -25,8 +25,11 @@ export class AddRepeatersComponent implements OnInit {
     this.showAllXhams();
   }
 
-  async add(exam,index)
-  {
+  async add(exam,index){
+    if(this.index===undefined || this.exam===undefined ){
+      this.toastr.error('','Missing Required Information', {positionClass: 'toast-bottom-right'});
+      return
+    }
     if (await this.service.submitRepeatingXham(this.exam,this.index)){
       this.exam = "";
       this.index = "";

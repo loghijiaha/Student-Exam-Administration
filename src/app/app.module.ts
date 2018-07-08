@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatCardModule} from '@angular/material/card';
 import { Route, RouterModule} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -37,8 +38,15 @@ import { ModuleDetailsComponent } from './homepage/home/Lecturer/module-details/
 import { EditResultComponent } from './homepage/home/Lecturer/edit-result/edit-result.component';
 import {User} from './shared/user.model';
 import {MatListModule} from '@angular/material';
+import { DeleteExamComponent } from './homepage/home/Admin/delete-exam/delete-exam.component';
+import { CreateModuleComponent} from './homepage/home/Admin/create-module/create-module.component';
+import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/create-new-exam.component';
+import { RegisterNewStudentComponent} from './homepage/home/Admin/register-new-student/register-new-student.component';
+import { RegisterNewLecturerComponent} from './homepage/home/Admin/register-new-lecturer/register-new-lecturer.component';
+import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-repeaters.component';
+import { ViewUserInquiriesComponent } from './homepage/home/Admin/view-user-inquiries/view-user-inquiries.component';
+import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/view-repeaters.component';
 import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
-
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
@@ -65,6 +73,15 @@ const ROUTES: Route[] = [
           { path: 'moduleDetails' , component: ModuleDetailsComponent},
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
+          //admin
+          { path: 'createStudent' , component: RegisterNewStudentComponent},
+          { path: 'createLecturer' , component: RegisterNewLecturerComponent},
+          { path: 'createModule' , component: CreateModuleComponent},
+          { path: 'createExam' , component: CreateNewExamComponent},
+          { path: 'deleteExam' , component: DeleteExamComponent},
+          { path: 'addRepeaters' , component: AddRepeatersComponent},
+          { path: 'viewRepeaters' , component: ViewRepeatersComponent},
+          { path: 'viewUserInquiries' , component: ViewUserInquiriesComponent},
 
 
         ] },
@@ -92,13 +109,20 @@ const ROUTES: Route[] = [
     RecorrectionRequestComponent,
     RequestRepeatComponent,
     StudentDetailsComponent,
-
+    CreateModuleComponent,
     AddResultsComponent,
     AddMessagesComponent,
     ViewMessagesComponent,
     ModuleDetailsComponent,
     EditResultComponent,
     SubUnSubModuleComponent,
+    DeleteExamComponent,
+    CreateNewExamComponent,
+    RegisterNewStudentComponent,
+    RegisterNewLecturerComponent,
+    AddRepeatersComponent,
+    ViewUserInquiriesComponent,
+    ViewRepeatersComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,6 +136,7 @@ const ROUTES: Route[] = [
     MatNativeDateModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatCardModule,
     BrowserAnimationsModule, // required animations module
     MatListModule,
     ToastrModule.forRoot()

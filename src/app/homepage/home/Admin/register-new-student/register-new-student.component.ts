@@ -23,12 +23,16 @@ export class RegisterNewStudentComponent implements OnInit {
     }
 
   public async createAccount() {
-  console.log(this.index,this.pass)
-      if (await this.service.submitAccountDetails(this.pass, 'student', this.index, this.batch)) {
-        this.pass = "";
-        this.index = "";
-        this.batch = "";
-        this.toastr.success('','Account Created:Student', {positionClass: 'toast-bottom-right'});
+    if( this.index===undefined || this.pass===undefined || this.batch===undefined){
+      this.toastr.error('','Missing Required Information', {positionClass: 'toast-bottom-right'});
+      return
+    }
+    else if (await this.service.submitAccountDetails(this.pass, 'student', this.index, this.batch)) {
+      console.log(this.index,this.pass)
+      this.pass = "";
+      this.index = "";
+      this.batch = "";
+      this.toastr.success('','Account Created:Student', {positionClass: 'toast-bottom-right'});
       }
 //testing required
     }

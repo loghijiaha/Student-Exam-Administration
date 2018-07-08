@@ -50,6 +50,8 @@ export class UserService {
             this.user.AccountType = body['accountType'];
             this.user.Key = body['key'];
             this.user.UserName = body['un'];
+            localStorage.setItem('accountType', body['accountType']);
+
           });
       }
       catch (e) {
@@ -63,7 +65,16 @@ export class UserService {
   }
   public requestForRecorrection() {}
   public requestForRepeat() {}
-  public inquries() {}
+  public async contact(about,dis) {
+    let res: Object = await this.http.post(this.rootUrl + 'contactAdmin', {
+      index:localStorage.getItem('un'),
+      topic: about,
+      description: dis
+
+    }).toPromise();
+
+    return true;
+  }
   // For lecturer
   public putPastpaper(fileToUpload: File, path: string): Observable<boolean> {
     const endpoint = path;
@@ -187,6 +198,11 @@ export class UserService {
       return true;
     }
     return false;
+  }
+  public async getRepeatRequests(exam){
+    return await this.http.post(this.rootUrl + 'getRepeatRequests',{
+      exam:exam,
+    })
   }
 }
 

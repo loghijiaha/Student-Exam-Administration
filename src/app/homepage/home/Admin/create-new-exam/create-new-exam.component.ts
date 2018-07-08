@@ -33,7 +33,11 @@ export class CreateNewExamComponent implements OnInit {
     this.showAllModules();
   }
   async create(mCode,date,start_time,venue){
-    if(await this.service.submitExamDetails(this.mCode,this.date,this.start_time,this.venue)){
+    if( this.mCode===undefined || this.venue===undefined || this.date===undefined){
+      this.toastr.error('','Missing Required Information', {positionClass: 'toast-bottom-right'});
+      return
+    }
+    else if(await this.service.submitExamDetails(this.mCode,this.date,this.start_time,this.venue)){
       this.date = "";
       this.start_time = "";
       this.venue = "";

@@ -1,3 +1,11 @@
-<p>
-  exams works!
-</p>
+<div *ngFor="let e of exams" >
+  <br>
+  <mat-card style ="width: 100%">
+
+    <p>{{e._id}}</p>
+    <p>{{e.date}}  {{e.startTime}}  </p>
+    <p>{{e.venue}}  </p>
+
+  </mat-card>
+
+</div>

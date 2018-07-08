@@ -19,8 +19,11 @@ export class RegisterNewLecturerComponent implements OnInit {
   }
 
   async createAccount(pass,acType,index){
-
-    if(await this.service.submitAccountDetails(pass,acType,index,this.batch)){
+    if( this.index===undefined || this.pass===undefined ){
+      this.toastr.error('','Missing Required Information', {positionClass: 'toast-bottom-right'});
+      return
+    }
+    else if(await this.service.submitAccountDetails(pass,acType,index,this.batch)){
       this.pass = "";
       this.index = "";
       this.toastr.success('','Account Created:Lecturer', {positionClass: 'toast-bottom-right'});

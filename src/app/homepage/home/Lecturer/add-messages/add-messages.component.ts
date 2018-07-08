@@ -22,10 +22,11 @@ export class AddMessagesComponent implements OnInit {
   ngOnInit() {
     this.getSubscribedModules();
   }
-  public async sendNotice(module_id) {
+  public async sendNoticel(module_id) {
     console.log(module_id,this.message);
     if (this.message != '') {
       let result = await this.userServ.sendNotice(module_id,this.message);
+      console.log(result);
       if (result != null) this.toast.success('Successfully sent', 'Success', {positionClass: 'toast-bottom-right'});
       else this.toast.error('Error', 'Error', {positionClass: 'toast-bottom-right'});
 

@@ -7,20 +7,16 @@
         <label for="dis">Module Code&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</label>
 
         <select  #mod id="dis" (change)="change_id(mod.value)">
-          <option  *ngFor="let o of moduleDetails">
+          <option  *ngFor="let o   of moduleDetails">
             {{o}}
           </option></select>
-        <mat-list >
-          <mat-list-item >
+
             <h1 matLine> Batch :   {{studentList['batch']}}  </h1>
             <br><h1 matLine> Semester :{{studentList['semester']}}  </h1>
             <br>
             <div>  <ul>
               <li *ngFor="let a of studentList['students']">{{a}}</li>
             </ul></div>
-
-          </mat-list-item>
-        </mat-list>
 
       </fieldset>
     </form>

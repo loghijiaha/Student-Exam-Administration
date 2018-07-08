@@ -35,6 +35,7 @@ export class UserService {
     } else {
 
       try {
+        console.log("working)");
         let res = await this.http.post(this.rootUrl + 'auth', {index: username, pw: password}).toPromise();
         localStorage.setItem('session', JSON.stringify({index: username, key: res['key']}));
         localStorage.setItem('un', username);
@@ -126,23 +127,29 @@ export class UserService {
         date:date,
         startTime:start_time,
         venue:venue,
-      }).toPromise();
+
+      }
+
+    ).toPromise();
+
     if (res['result'] == 200)return true;
     return false;
   }
-  public async getAllModulesF(){
-    let res = await this.http.post(this.rootUrl + 'getAllModules', {}).toPromise();
-    //The type check might be redundant and errornous
-    if (res['result'].isTypeOf([])){
-      return ['result']
-    }
-  }
 
-  public async sendNotice(module_id,message){
-    console.log(module_id,message);
-    let res = await this.http.post(this.rootUrl+'sendNotices',{module_id: module_id, message :message}).toPromise();
-    console.log(res);
-    return res
+  public async getAllModulesF(){
+    let res = await this.http.post(this.rootUrl + 'getAllModules', {
+
+    }).toPromise();
+
+    //The type check might be redundant and errornuous
+      return res;
+    }
+
+  public async getSubscribedModules(){
+    return this.http.post(this.rootUrl+'getSubscribedModules',{index: localStorage.getItem('un')}).toArray;
+  }
+  public async sendNotice(id,message){
+    return  await this.http.post(this.rootUrl+'sendNotices',{module_id : id ,message :message}).toPromise();
   }
   public async getAllXhams(){
     let res = await this.http.post(this.rootUrl + 'getAllExams',{

@@ -40,6 +40,8 @@ import { CreateModuleComponent} from './homepage/home/Admin/create-module/create
 import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/create-new-exam.component';
 import { RegisterNewStudentComponent} from './homepage/home/Admin/register-new-student/register-new-student.component';
 import { RegisterNewLecturerComponent} from './homepage/home/Admin/register-new-lecturer/register-new-lecturer.component';
+import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-repeaters.component';
+
 
 const ROUTES
 : Route[] = [
@@ -72,6 +74,7 @@ const ROUTES
           { path: 'createModule' , component: CreateModuleComponent},
           { path: 'createExam' , component: CreateNewExamComponent},
           { path: 'deleteExam' , component: DeleteExamComponent},
+          { path: 'addRepeaters' , component: AddRepeatersComponent},
 
 
         ] },
@@ -109,6 +112,7 @@ const ROUTES
     CreateNewExamComponent,
     RegisterNewStudentComponent,
     RegisterNewLecturerComponent,
+    AddRepeatersComponent,
   ],
   imports: [
     BrowserModule,

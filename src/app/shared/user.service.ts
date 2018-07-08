@@ -185,5 +185,17 @@ export class UserService {
     }
     return false;
   }
+
+  public async submitRepeatingXham(exam,index){
+    let res = await this.http.post(this.rootUrl + 'addRepeat',{
+      exam:exam,
+      index:index,
+    }).toPromise();
+    if (res['result'] == 200){
+      console.log('200:Add OK');
+      return true;
+    }
+    return false;
+  }
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {UserService} from '../../../../shared/user.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-new-exam',
@@ -18,7 +19,7 @@ export class CreateNewExamComponent implements OnInit {
   minDate(): Date {
     return new Date();
   }
-    constructor(private http:HttpClient, private service:UserService) {
+    constructor(private http:HttpClient, private service:UserService,private toastr:ToastrService) {
 
   }
   async showAllModules(){
@@ -38,6 +39,7 @@ export class CreateNewExamComponent implements OnInit {
       this.venue = "";
       //Probable cause of errors by adding more options to the list
       this.mCode = "";
+      this.toastr.success('','Exam Scheduled', {positionClass: 'toast-bottom-right'});
     }
   }
 }

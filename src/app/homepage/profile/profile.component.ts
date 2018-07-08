@@ -14,7 +14,8 @@ export class ProfileComponent implements OnInit {
   isAdmin = false;
   constructor( userS: UserService) {
     this.name = userS.user.FirstName;
-    this.accounttype = userS.user.AccountType;
+    this.accounttype = localStorage.getItem('accountType');
+    console.log(this,this.accounttype);
     if ( this.accounttype === 'student'){
       this.isStudent = true;
     } else if (this.accounttype === 'lecturer') {

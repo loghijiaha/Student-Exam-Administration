@@ -8,7 +8,7 @@ export class User {
   private _Email: string;
   AccountType: string;
   DisplayTab: string[];
-  SubscribedModules: string[];
+  private _SubscribedModules: any;
   public constructor() {
     if (this.AccountType === 'admin') {
       this.DisplayTab = ['home', 'profile'];
@@ -19,6 +19,17 @@ export class User {
     } else {
       this.DisplayTab = ['home', 'profile' , 'notification', 'contact' , 'ji' ];
     }
+  }
+
+  public setSubscribedModules(value: any) {
+    this._SubscribedModules = value;
+    console.log("hi");
+    console.log(value);
+
+  }
+
+  public SubscribedModules(): any {
+    return this._SubscribedModules;
   }
 
   get Birthday(): string {

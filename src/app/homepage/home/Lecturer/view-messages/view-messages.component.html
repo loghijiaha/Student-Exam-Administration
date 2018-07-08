@@ -1,3 +1,14 @@
-<p>
-  view-messages works!
-</p>
+
+<mat-list >
+  <mat-list-item *ngFor="let student of studentList">
+    <h2 matLine> {{student._id}} </h2>
+    <h3><p matLine >
+
+      <span> {{student.name}} </span>
+      <span > {{student.semester}} </span>
+
+      <span > {{student.batch}} </span>
+    </p></h3>
+  </mat-list-item>
+</mat-list>
+

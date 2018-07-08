@@ -1,3 +1,13 @@
-<p>
-  module-details works!
-</p>
+<mat-list >
+  <mat-list-item *ngFor="let module of moduleDetails">
+    <h2 matLine> {{module.title}} </h2>
+    <h3><p matLine >
+
+      <span> {{module.moduleCode}} </span>
+      <span > {{module.semester}} </span>
+
+      <span > {{module.batch}} </span>
+    </p></h3>
+  </mat-list-item>
+</mat-list>
+

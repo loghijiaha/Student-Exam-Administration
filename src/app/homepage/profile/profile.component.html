@@ -9,13 +9,11 @@
 <!--
     student
 -->
-    <h5><a  [hidden]="!isStudent" routerLink='register'>Register new course</a></h5>
+    <h5><a  [hidden]="!isStudent" routerLink='register'>Modules</a></h5>
     <h5><a  [hidden]="!isStudent" routerLink="results">Results</a></h5>
-    <h5><a  [hidden]="!isStudent" routerLink="pastpapers">Past Papers</a></h5>
-    <h5><a   [hidden]="!isStudent"routerLink="recorrection">Request fo recorrecction</a></h5>
+    <h5><a   [hidden]="!isStudent"routerLink="recorrection">Request for re-correction</a></h5>
     <h5><a  [hidden]="!isStudent" routerLink="requestRepeat">Request for repeat</a></h5>
-    <h5><a   [hidden]="!isStudent" routerLink="inqueries">Inqueries</a></h5>
-    <h5><a   [hidden]="!isStudent" routerLink="exams">Upcomming exams</a></h5>
+    <h5><a   [hidden]="!isStudent" routerLink="exams">Exams</a></h5>
 
     <!-- lecturer-->
     <h5><a   [hidden]="!isLecturer" routerLink="subUnSubModule">Subscribe new Module</a></h5>
@@ -33,7 +31,7 @@
     <h5><a [hidden]="!isAdmin" routerLink="deleteExam">Delete Scheduled Exam</a></h5>
     <h5><a [hidden]="!isAdmin" routerLink="addRepeaters">Add Repeaters</a> </h5>
     <h5><a [hidden]="!isAdmin" routerLink="viewRepeaters">View Repeat Students</a> </h5>
-    <h5><a [hidden]="!isAdmin" routerLink="viewUserInquiries"></a>Display User Inquiries</h5>
+    <h5><a [hidden]="!isAdmin" routerLink="viewUserInquiries">Display User Inquiries</a></h5>
 
   </div>
   <div style="float:left; margin-left: 1cm">

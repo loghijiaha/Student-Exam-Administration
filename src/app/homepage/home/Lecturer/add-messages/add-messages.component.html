@@ -5,19 +5,21 @@
       <fieldset>
         <legend>{{module_id}} notices</legend>
         <div style=" float: left">
-          <label for="dis">Module Code&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</label>
+          <label for="dis">Module Code&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</label>
 
           <select #module_ids (change)="change_id($event)">
             <option  *ngFor="let o of moduleList">
               {{o}}
             </option>
           </select>
+          <br>
+          <br>
           <div class="form-group">
             <label for="dis">New Description&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</label>
             <textarea name="message" [(ngModel)] = "message"cols="100" rows="3" id="dis"></textarea>
           </div>
           <div class="form-group" style = " float: right ; margin-left: 15cm" >
-            <button (click)="sendNotice(module_ids.value)" type="submit" class="btn btn-primary">Broadcast</button>
+            <button (click)="sendNoticel(module_ids.value)" type="submit" class="btn btn-primary">Broadcast</button>
           </div>
         </div>
 

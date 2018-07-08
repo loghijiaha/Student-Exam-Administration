@@ -46,8 +46,7 @@ import { RegisterNewLecturerComponent} from './homepage/home/Admin/register-new-
 import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-repeaters.component';
 import { ViewUserInquiriesComponent } from './homepage/home/Admin/view-user-inquiries/view-user-inquiries.component';
 import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/view-repeaters.component';
-
-
+import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
@@ -65,6 +64,8 @@ const ROUTES: Route[] = [
           { path: 'recorrection' , component: RecorrectionRequestComponent},
           { path: 'exams' , component: ExamsComponent },
           // lecturer
+          { path: 'subUnSubModule' , component: SubUnSubModuleComponent},
+
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'addResult' , component: AddResultsComponent},
           { path: 'addMessage' , component: AddMessagesComponent},
@@ -114,6 +115,7 @@ const ROUTES: Route[] = [
     ViewMessagesComponent,
     ModuleDetailsComponent,
     EditResultComponent,
+    SubUnSubModuleComponent,
     DeleteExamComponent,
     CreateNewExamComponent,
     RegisterNewStudentComponent,

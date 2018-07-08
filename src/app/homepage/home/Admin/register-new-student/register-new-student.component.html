@@ -1,3 +1,43 @@
-<p>
-  register-new-student works!
-</p>
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+
+      <fieldset>
+        <legend>Create New Student Account</legend>
+        <br>
+        <div style=" float: left">
+          <label>Account Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label>Student</label>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="form-group">
+          <label for="password" >Password(Default)&nbsp;&nbsp;&nbsp;   </label>
+          <input style="margin: 0.5cm" type="password"  [(ngModel)] = "pass"
+                 id="password"
+                 placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="index" >Index Number&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </label>
+          <input style="margin: 0.5cm" type="text"  [(ngModel)] = "index"
+                 id="index"
+                 placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="batch" >Batch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </label>
+          <input style="margin: 0.5cm" type="text"  [(ngModel)] = "batch"
+                 id="batch"
+                 placeholder="">
+        </div>
+        <br>
+        <div class="form-group" style = " float: right ; margin-left: 15cm" >
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary" (click)="createAccount()">Create</button>
+        </div>
+      </fieldset>
+
+  </div>
+</div>
+

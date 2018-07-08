@@ -30,7 +30,7 @@ export class AddRepeatersComponent implements OnInit {
       this.toastr.error('','Missing Required Information', {positionClass: 'toast-bottom-right'});
       return
     }
-    if (await this.service.submitRepeatingXham(this.exam,this.index)){
+    else if (await this.service.submitRepeatingXham(this.exam,this.index)){
       this.exam = "";
       this.index = "";
       this.toastr.success('','Add Successful', {positionClass: 'toast-bottom-right'});

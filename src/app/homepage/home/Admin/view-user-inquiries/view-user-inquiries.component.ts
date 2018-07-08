@@ -8,32 +8,19 @@ import {UserService} from '../../../../shared/user.service';
   styleUrls: ['./view-user-inquiries.component.css']
 })
 export class ViewUserInquiriesComponent implements OnInit {
-  dat: {};
-  selectedoption: string;
-  change:any;
-  allModules: Array<any>;
+  inquiries : any;
+  rootUrl = 'http://localhost:8082/';
 
-  lists : Array<string>;
+  constructor(public http:HttpClient) {
 
-  sell:any;
-  constructor(private http: HttpClient, private services: UserService) {
   }
 
   ngOnInit() {
-    this.pageLoad();
+    this.getUserInquiries();
   }
-
-  async pageLoad() {
-    this.allModules = <Array<any>>await this.services.getAllXhams();
-
-  }
-
-  async show(module){
-    let res = await this.http.post(this.services.rootUrl+'getRepeatRequests',{
-      exam:module
-    }).toPromise();
-
-    this.lists = <Array<any>> res;
-
+  public async getUserInquiries(){
+    let result = await this.http.post(this.rootUrl+'getUserInquiries',{}).toPromise();
+    this.inquiries= result;
+    console.log(result);
   }
 }

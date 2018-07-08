@@ -1,3 +1,43 @@
-<p>
-  sub-un-sub-module works!
-</p>
+
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Subscribe/Unsubscribe {{my_id}}</legend>
+        <br>
+        <div style=" float: left">
+          <label for="select">NewCourses&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <select id="select" #select [(ngModel)]="my_id" name=" first">
+            <option *ngFor="let a of allModuleList">{{ a['_id']}}</option>
+          </select>
+        </div>
+
+        <div class="form-group" style = " float: right " >
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary" (click)="subscribe(my_id)">Subscribe</button>
+        </div>
+      </fieldset>
+
+      <div class="container">
+        <h1>Subscribed List</h1><br>
+        <table class="table table-hover" cellspacing="5">
+          <thead>
+          <tr>
+            <th>Index Number</th>
+            <th>Subscribe/Unsubscribe</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let mod of subModules">
+            <td>{{mod}}</td>
+            <td> <button type="submit" class="btn btn-primary" (click)="unsubscribe(mod)">Unsubscribe</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </form>
+  </div>
+</div>
+

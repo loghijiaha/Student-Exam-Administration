@@ -15,11 +15,10 @@ export class ModuleDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllModuleDetails()
+    this.getSubscribedModules();
   }
-  public async getAllModuleDetails(){
+  public async getSubscribedModules(){
     let result = await this.http.post(this.rootUrl+'getAllModuleDetails',{}).toPromise();
-
     this.moduleDetails= result;
     console.log(result);
   }

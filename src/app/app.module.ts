@@ -37,6 +37,7 @@ import { ModuleDetailsComponent } from './homepage/home/Lecturer/module-details/
 import { EditResultComponent } from './homepage/home/Lecturer/edit-result/edit-result.component';
 import {User} from './shared/user.model';
 import {MatListModule} from '@angular/material';
+import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
@@ -55,6 +56,8 @@ const ROUTES: Route[] = [
           { path: 'recorrection' , component: RecorrectionRequestComponent},
           { path: 'exams' , component: ExamsComponent },
           // lecturer
+          { path: 'subUnSubModule' , component: SubUnSubModuleComponent},
+
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'addResult' , component: AddResultsComponent},
           { path: 'addMessage' , component: AddMessagesComponent},
@@ -95,6 +98,7 @@ const ROUTES: Route[] = [
     ViewMessagesComponent,
     ModuleDetailsComponent,
     EditResultComponent,
+    SubUnSubModuleComponent,
   ],
   imports: [
     BrowserModule,

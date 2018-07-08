@@ -137,8 +137,8 @@ export class UserService {
   public async getSubscribedModules(){
     return this.http.post(this.rootUrl+'getSubscribedModules',{index: localStorage.getItem('un')}).toArray;
   }
-  public async sendNotice(message){
-    return this.http.post(this.rootUrl+'sendNotice',{message :message});
+  public async sendNotice(id,message){
+    return  await this.http.post(this.rootUrl+'sendNotices',{module_id : id ,message :message}).toPromise();
   }
   public async getAllXhams(){
     let res = await this.http.post(this.rootUrl + 'getAllExams',{

@@ -1,0 +1,21 @@
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+    <fieldset>
+      <legend>Display Repeat Students</legend>
+      <br>
+      <div>
+        <div>
+          <select #sell>
+            <option *ngFor="let mod of allModules">
+              {{mod._id}}
+            </option>
+
+          </select>
+          <button (click) = "show(sell.value)">Show</button>
+          <p *ngFor="let x of lists"> {{x}}</p>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+

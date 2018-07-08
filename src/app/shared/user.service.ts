@@ -63,7 +63,16 @@ export class UserService {
   }
   public requestForRecorrection() {}
   public requestForRepeat() {}
-  public inquries() {}
+  public async contact(about,dis) {
+    let res: Object = await this.http.post(this.rootUrl + 'contactAdmin', {
+      index:localStorage.getItem('un'),
+      topic: about,
+      description: dis
+
+    }).toPromise();
+
+    return true;
+  }
   // For lecturer
   public putPastpaper(fileToUpload: File, path: string): Observable<boolean> {
     const endpoint = path;

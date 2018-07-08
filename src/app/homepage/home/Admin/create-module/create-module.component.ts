@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../../shared/user.service';
 import {HttpClient} from '@angular/common/http';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-module',
@@ -25,7 +26,7 @@ export class CreateModuleComponent implements OnInit {
     { semester: 8 },
   ]
 
-  constructor(private http: HttpClient,private service: UserService) {
+  constructor(private http: HttpClient,private service: UserService,private toastr: ToastrService) {
 
   }
 //erpkfkpk[fs
@@ -36,6 +37,7 @@ export class CreateModuleComponent implements OnInit {
     this.batch = "";
     this.mCode = "";
     this.title = "";
+      this.toastr.success('','Module Created', {positionClass: 'toast-bottom-right'});
     }
 
   }

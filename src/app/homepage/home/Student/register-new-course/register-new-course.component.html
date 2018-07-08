@@ -8,12 +8,11 @@
         <div style=" float: left">
           <label for="select">NewCourses&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <select id="select" #select>
-            <option *ngFor="let Reg of allRegCourses">{{ Reg.modName}}</option>
+            <option *ngFor="let module of registableModules">{{ module}}</option>
           </select>
         </div>
         <br>
         <div class="form-group" style = " float: right ; margin-left: 15cm" >
-          <button type="reset" class="btn btn-default">Cancel</button>
           <button type="submit" class="btn btn-primary" (click)="register(select.value)">Register</button>
         </div>
       </fieldset>
@@ -21,20 +20,19 @@
   </div>
 </div>
 
-<div class="container">
-  <h1>Course list</h1>
-  <table class="table table-hover" cellspacing="5">
-    <thead>
-    <tr>
-      <th>Module Number</th>
-      <th>Course</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let course of regCourses">
-      <td>{{course.modNum}}</td>
-      <td>{{course.modName}}</td>
-    </tr>
-    </tbody>
-  </table>
+<br>
+<br>
+
+<div class= "col-sm-5 custom-container jumbotron">
+  <fieldset>
+  <legend>Registered Modules</legend>
+    <table class="table table-hover" style="width: 100%">
+      <tbody>
+      <tr *ngFor="let course of registeredModules">
+        <td>{{course}}</td>
+        <td class="zzz"><button  (click)="unsubscribe(course)">Unsubscribe</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </fieldset>
 </div>

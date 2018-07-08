@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
+import {UserService} from '../../../../shared/user.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-request-repeat',
@@ -6,25 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./request-repeat.component.css']
 })
 export class RequestRepeatComponent implements OnInit {
-  allRegCourses: any;
-  selectedOption: string;
-  options: any;
-  constructor() {
-    this.allRegCourses  = [
-      { modNum: 455 , modName: 'Maths'},
-      {modNum: 458 , modName: 'Data'},
-      {modNum: 457, modName: 'English'}
-    ]
-    this.options = [
-      { name: '2016', value: 2016 },
-      { name: '2017', value: 2017 },
-      { name: '2018', value: 2018 },
-      { name: '2019' , value: 2019} ];
+
+  public recorrectableExams: Array<any>;
+
+  constructor(private http: HttpClient,private us: UserService, private toastr: ToastrService) { }
+
+  async request(modName: string) {
+
+    await this.http.post(this.us.rootUrl + 'applyRepeat', {
+      index: localStorage.getItem('un'),
+      exam: modName
+    }).toPromise();
+    this.toastr.success('', 'Success', {positionClass: 'toast-bottom-right'});
+
+
+
+  }
+
+
+  async getRecorrectableExams(){
+    return (<Array<any>>await this.http.post(this.us.rootUrl + 'getRecorrectableExams', {
+      index: localStorage.getItem('un')
+    }).toPromise()).map(a => a._id);
   }
 
   ngOnInit() {
+    this.pageLoad();
   }
-  requestRepeat(modName: string, year: number) {
-    // add request for recoreection
+
+  async pageLoad(){
+    let a2 = this.recorrectableExams = await this.getRecorrectableExams();
   }
+
 }

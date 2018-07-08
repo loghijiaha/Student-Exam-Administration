@@ -9,27 +9,14 @@
 
           <label for="select">Course Module&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <select id="select" #selectMod>
-            <option *ngFor="let Reg of allRegCourses">{{ Reg.modName}}</option>
+            <option *ngFor="let Reg of recorrectableExams">{{ Reg}}</option>
 
           </select>
-        </div>
-        <div style="float: left ; margin-left: 5cm " >
-          <label for="year">
-            year
-          </label>
-
-          <select [(ngModel)]= "selectedOption"  id ="year" #year [ngModelOptions]="{standalone: true}">
-            <option *ngFor="let o of options" [selected] = "o.name=='2016'">
-              {{o.name}}
-            </option>
-          </select>
-
         </div>
         </form>
         <br>
         <div class="form-group" style = " float: right ; margin-left: 15cm" >
-          <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-primary" (click)="requestRepeat(selectMod.value,year.value)">Request</button>
+          <button type="submit" class="btn btn-primary" (click)="request(selectMod.value)">Request</button>
         </div>
       </fieldset>
     </form>

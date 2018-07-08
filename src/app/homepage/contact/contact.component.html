@@ -1,3 +1,28 @@
-<p>
-  contact works!
-</p>
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+
+    <fieldset>
+      <legend>Contact Admin</legend>
+      <div style=" float: left">
+        <div class="form-group">
+          <label for ="about" >About&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+          <input style="margin: 0.5cm" type="text "
+                 id="about" [(ngModel)]="about"
+                 placeholder = "What about">
+        </div>
+
+        <div class="form-group">
+          <label for="dis">New Description&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</label>
+          <textarea cols="25" rows="7"  id="dis" required [(ngModel)]="dis"></textarea>
+
+        </div>
+
+        <div class="form-group" style = " float: right ; margin-left: 15cm" >
+          <button type="reset" (click)="clear()" class="btn btn-default">Cancel</button>
+          <button type="submit" (click)="contact()" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </div>
+</div>

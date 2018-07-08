@@ -1,0 +1,28 @@
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+
+      <fieldset>
+        <legend>Delete Scheduled Exam</legend>
+        <br>
+        <div>
+
+
+            <select [(ngModel)]= "selectedOption" [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let xham of allXhams">
+                {{xham._id}}
+              </option>
+            </select>
+
+
+          <p>Selected option: {{ selectedOption }}</p>
+
+        </div>
+        <div class="form-group" style = " float: right ; margin-left: 15cm" >
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary" (click)="proceed(selectedOption)">Proceed</button>
+        </div>
+      </fieldset>
+<!--wkjelelwkkekp;few;fpke-->
+  </div>
+</div>
+

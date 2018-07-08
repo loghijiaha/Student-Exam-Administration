@@ -8,18 +8,33 @@
 
           <div class="form-group">
 
-            <mat-form-field id="bday">
+            <!--mat-form-field id="bday">
               <input matInput [matDatepicker]="picker" placeholder="Birthday">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+            </mat-form-field-->
+            <div class="form-group">
+              <label for="name" >Full Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </label>
+              <input style="margin: 0.5cm" type="text"
+                     id="name"
+                     [(ngModel)] = "name"
+                     placeholder="Full Name / Unchanged">
+            </div>
 
-          </div>f
+            <div class="form-group">
+              <label for="E-mail" >Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </label>
+              <input style="margin: 0.5cm" type="text"
+                     id="E-mail"
+                     [(ngModel)] = "email"
+                     placeholder=" New Email address / Unchanged">
+            </div>
+          </div>
           <div class="form-group">
-            <label for="address" >Address&nbsp;&nbsp;&nbsp;   </label>
+            <label for="address" >Address&nbsp;&nbsp;   </label>
             <input style="margin: 0.5cm" type="text"
                    id="address"
-                   placeholder="New address">
+                   [(ngModel)] = "address"
+                   placeholder="New address / Unchanged">
           </div>
 
         </div>
@@ -28,21 +43,30 @@
             <label for = "tel">Telephone</label>
             <input style="margin: 0.5cm" type="text"
                    id="tel"
-                   placeholder = "New UserName">
+                   [(ngModel)] = "tp"
+                   placeholder = " New Contact Number / Unchanged">
           </div>
           <div class="form-group">
-            <label for="Email">E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input style="margin: 0.5cm" type="date"
-                   id="Email"
-                   placeholder="Update Birthday">
+            <label for="B'Day">BirthDay&nbsp;&nbsp;</label>
+            <input style="margin: 0.5cm" type="date" max="2018-07-09"
+                   id="B'Day"
+                   [(ngModel)] = "bday"
+                   placeholder="Birthday / Unchanged">
           </div>
 
+          <div>
+            <label for="select">Gender&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <select [(ngModel)] = "select">
+              <option *ngFor="let gen of genders" id="select">{{gen.gender}}</option>
+            </select>
+          </div>
+          <br>
 
         </div>
       </div>
       <div class="form-group" style = " float: right ; margin-left: 15cm" >
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="shove()">Submit</button>
       </div>
 
     </fieldset>

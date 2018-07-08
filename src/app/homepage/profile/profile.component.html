@@ -25,6 +25,16 @@
     <h5><a   [hidden]="!isLecturer" routerLink="viewMessage">View messages</a></h5>
     <h5><a   [hidden]="!isLecturer" routerLink="studentDetails">Show student details</a></h5>
 
+    <!-- admin-->
+    <h5><a [hidden]="!isAdmin" routerLink="createStudent">Create Student Account</a></h5>
+    <h5><a [hidden]="!isAdmin" routerLink="createLecturer">Create Lecturer Account</a></h5>
+    <h5><a [hidden]="!isAdmin" routerLink="createModule">Create Module</a></h5>
+    <h5><a [hidden]="!isAdmin" routerLink="createExam">Create New Exam</a></h5>
+    <h5><a [hidden]="!isAdmin" routerLink="deleteExam">Delete Scheduled Exam</a></h5>
+    <h5><a [hidden]="!isAdmin" routerLink="addRepeaters">Add Repeaters</a> </h5>
+    <h5><a [hidden]="!isAdmin" routerLink="viewRepeaters">View Repeat Students</a> </h5>
+    <h5><a [hidden]="!isAdmin" routerLink="viewUserInquiries"></a>Display User Inquiries</h5>
+
   </div>
   <div style="float:left; margin-left: 1cm">
     <router-outlet ></router-outlet>

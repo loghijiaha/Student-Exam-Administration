@@ -35,7 +35,7 @@ import {AuthGuard} from './auth.guard';
 import {ToastrModule} from 'ngx-toastr';
 import { ModuleDetailsComponent } from './homepage/home/Lecturer/module-details/module-details.component';
 import { EditResultComponent } from './homepage/home/Lecturer/edit-result/edit-result.component';
-import {AddPastpaperComponent} from './homepage/home/Lecturer/add-pastpaper/add-pastpaper.component';
+
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
@@ -59,7 +59,7 @@ const ROUTES: Route[] = [
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'editResult' , component: EditResultComponent},
           { path: 'moduleDetails' , component: ModuleDetailsComponent},
-          { path: 'addPastPaper' , component: AddPastpaperComponent},
+
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
 

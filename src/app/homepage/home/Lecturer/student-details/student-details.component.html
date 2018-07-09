@@ -14,9 +14,9 @@
             <h1 matLine> Batch :   {{studentList['batch']}}  </h1>
             <br><h1 matLine> Semester :{{studentList['semester']}}  </h1>
             <br>
-            <div>  <ul>
+        <div><mat-card><h2>Student List</h2> <ul>
               <li *ngFor="let a of studentList['students']">{{a}}</li>
-            </ul></div>
+            </ul></mat-card> </div>
 
       </fieldset>
     </form>

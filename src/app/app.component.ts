@@ -1,10 +1,12 @@
 import { Component , OnInit } from '@angular/core';
 import {UserService} from './shared/user.service';
 import {User} from './shared/user.model';
+import {CarouselConfig} from 'ngx-bootstrap/carousel';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
+
 })
 export class AppComponent  implements OnInit {
   username: string;

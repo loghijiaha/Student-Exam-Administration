@@ -72,7 +72,6 @@ export class EditProfileComponent implements OnInit {
 
     console.log(res)
 
-
   }
 
   onEditSubmit(form: NgForm) {

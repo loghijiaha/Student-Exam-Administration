@@ -6,6 +6,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AppRoutingModule } from './/app-routing.module';
+import {MatTabsModule} from '@angular/material/tabs';
 import { HomeComponent } from './homepage/home/home.component';
 import { ProfileComponent } from './homepage/profile/profile.component';
 import { NotificationComponent } from './homepage/notification/notification.component';
@@ -130,6 +131,7 @@ const ROUTES: Route[] = [
     AppRoutingModule,
     HttpClientModule,
     MatToolbarModule,
+    MatTabsModule,
     MatInputModule,
     MatTableModule,  PdfViewerModule, FormsModule,
     MatDatepickerModule,
@@ -146,3 +148,6 @@ const ROUTES: Route[] = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+

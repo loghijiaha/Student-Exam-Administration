@@ -35,6 +35,9 @@ export class AddRepeatersComponent implements OnInit {
       this.index = "";
       this.toastr.success('','Add Successful', {positionClass: 'toast-bottom-right'});
     }
+    else{
+      this.toastr.error('','Invalid Index', {positionClass: 'toast-bottom-right'});
+    }
   }
 //ewfefewfwfewfew
 }

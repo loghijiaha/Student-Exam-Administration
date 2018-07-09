@@ -3,6 +3,10 @@
   "project": {
     "name": "student-exam-system"
   },
+  "styles": [
+    "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "styles.css",
+  ],
   "apps": [
     {
       "root": "src",

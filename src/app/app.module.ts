@@ -1,16 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule} from '@angular/material/card';
 import { Route, RouterModule} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AppRoutingModule } from './/app-routing.module';
+import {MatTabsModule} from '@angular/material/tabs';
 import { HomeComponent } from './homepage/home/home.component';
 import { ProfileComponent } from './homepage/profile/profile.component';
 import { NotificationComponent } from './homepage/notification/notification.component';
 import { ContactComponent } from './homepage/contact/contact.component';
-import {UserService} from './shared/user.service';
+import { UserService} from './shared/user.service';
 import { EditProfileComponent } from './homepage/home/Student/edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './homepage/home/Student/change-password/change-password.component';
 import { RegisterNewCourseComponent } from './homepage/home/Student/register-new-course/register-new-course.component';
@@ -44,9 +45,13 @@ import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/cre
 import { RegisterNewStudentComponent} from './homepage/home/Admin/register-new-student/register-new-student.component';
 import { RegisterNewLecturerComponent} from './homepage/home/Admin/register-new-lecturer/register-new-lecturer.component';
 import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-repeaters.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AlertModule } from 'ngx-bootstrap';
+
 import { ViewUserInquiriesComponent } from './homepage/home/Admin/view-user-inquiries/view-user-inquiries.component';
 import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/view-repeaters.component';
 import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
+
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
@@ -72,6 +77,7 @@ const ROUTES: Route[] = [
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'editResult' , component: EditResultComponent},
           { path: 'moduleDetails' , component: ModuleDetailsComponent},
+
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
           //admin
@@ -124,6 +130,7 @@ const ROUTES: Route[] = [
     AddRepeatersComponent,
     ViewUserInquiriesComponent,
     ViewRepeatersComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -131,6 +138,7 @@ const ROUTES: Route[] = [
     AppRoutingModule,
     HttpClientModule,
     MatToolbarModule,
+    MatTabsModule,
     MatInputModule,
     MatTableModule,  PdfViewerModule, FormsModule,
     MatDatepickerModule,
@@ -140,7 +148,10 @@ const ROUTES: Route[] = [
     MatCardModule,
     BrowserAnimationsModule, // required animations module
     MatListModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AlertModule.forRoot(),
+    CarouselModule.forRoot()
+
   ],
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
   providers: [UserService, DatePipe, AuthGuard,User],

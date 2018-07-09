@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {UserService} from '../../../../shared/user.service';
 
 @Component({
   selector: 'app-register-new-course',
@@ -9,48 +11,53 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterNewCourseComponent implements OnInit {
   index: number;
   inFlag = false;
-  allRegCourses  = [
-    { modNum: 455 , modName: 'Maths'},
-    {modNum: 458 , modName: 'Data'},
-    {modNum: 457, modName: 'English'}
-  ]
-  regCourses = [
-    {
-      modNum: 451 , modName: 'hello'
-    },
-    {
-      modNum: 459 , modName: 'ggergr'
-    },
-    {
-      modNum: 478 , modName: 'helfghglo'
-    },
-    {
-      modNum: 454 , modName: 'hellohf'
-    }
-  ];
-  constructor() {
+  registableModules  = [ ];
+  registeredModules = [];
+
+
+  constructor(private http: HttpClient,private us: UserService) {
+
   }
-  register( course: string) {
-   this.allRegCourses.forEach(i => {
-     if ( i.modName === course) {
-       this.index = i.modNum;
-       console.log(i);
-       this.regCourses.forEach( j => {
-         if (JSON.stringify(j) === JSON.stringify({modNum: i.modNum, modName: i.modName})) {
-           this.inFlag = true;
-         }
-       });
-     }
-     });
-   if (this.inFlag) {
-     alert('You have enroled already');
-   } else {
-     this.regCourses.push({modNum: this.index, modName: course});
-     console.log(this.regCourses);
-   }
-   this.inFlag = false;
+
+  async register( course: string) {
+    await this.http.post(this.us.rootUrl + 'subscribe', {
+      index: localStorage.getItem('un'),
+      module: course
+    }).toPromise();
+
+    this.pageLoad();
   }
+
+  async unsubscribe( course: string) {
+    await this.http.post(this.us.rootUrl + 'unsubscribe', {
+      index: localStorage.getItem('un'),
+      module: course
+    }).toPromise();
+
+    this.pageLoad();
+  }
+
+
   ngOnInit() {
+    this.pageLoad();
+  }
+
+  async getAllModules(){
+    return (<Array<any>>await this.http.post(this.us.rootUrl + 'getAllModules', {
+      index: localStorage.getItem('un')
+    }).toPromise()).map(a => a._id);
+  }
+
+  async getSubscribedModules(){
+    return <Array<any>>await this.http.post(this.us.rootUrl + 'getSubscribedModules', {
+      index: localStorage.getItem('un')
+    }).toPromise();
+  }
+
+  async pageLoad(){
+    let a1 = await this.getAllModules();
+    let a2 = this.registeredModules = await this.getSubscribedModules();
+    this.registableModules = a1.filter(function(i) {return a2.indexOf(i) < 0;});
   }
 
 }

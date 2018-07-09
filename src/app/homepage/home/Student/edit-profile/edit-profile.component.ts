@@ -38,6 +38,7 @@ export class EditProfileComponent implements OnInit {
   ]
 
   constructor(private http: HttpClient, private service: UserService, private toastr: ToastrService) {
+    this.pageLoad();
   }
 
   * /*for (let i = 1; i < 30 ; i++) {
@@ -55,12 +56,23 @@ export class EditProfileComponent implements OnInit {
   }
 
   async pageLoad(){
-
-    let res = await this.http.post(this.rootUrl + 'userInfo', {
+    let k = 8;
+    let res =<any> await this.http.post(this.service.rootUrl + 'userInfo', {
       index: localStorage.getItem('un'),
       key: localStorage.getItem('key')
     }).toPromise();
-    let u = 98;
+
+    this.name = res.fullname;
+    this.email = res.email;
+    this.address = res.address;
+    this.tp = res.tele;
+
+
+
+
+    console.log(res)
+
+
   }
 
   onEditSubmit(form: NgForm) {

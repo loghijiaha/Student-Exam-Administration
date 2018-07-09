@@ -1,5 +1,6 @@
 import { Component, OnInit , Input } from '@angular/core';
 import { UserService} from '../../shared/user.service';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-profile',

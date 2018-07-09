@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule} from '@angular/material/card';
 import { Route, RouterModule} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -11,7 +11,7 @@ import { HomeComponent } from './homepage/home/home.component';
 import { ProfileComponent } from './homepage/profile/profile.component';
 import { NotificationComponent } from './homepage/notification/notification.component';
 import { ContactComponent } from './homepage/contact/contact.component';
-import {UserService} from './shared/user.service';
+import { UserService} from './shared/user.service';
 import { EditProfileComponent } from './homepage/home/Student/edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './homepage/home/Student/change-password/change-password.component';
 import { RegisterNewCourseComponent } from './homepage/home/Student/register-new-course/register-new-course.component';
@@ -48,6 +48,9 @@ import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-r
 import { ViewUserInquiriesComponent } from './homepage/home/Admin/view-user-inquiries/view-user-inquiries.component';
 import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/view-repeaters.component';
 import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
+
+
+
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
@@ -124,6 +127,7 @@ const ROUTES: Route[] = [
     AddRepeatersComponent,
     ViewUserInquiriesComponent,
     ViewRepeatersComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -3,11 +3,22 @@
   width: 100%;
   color: #333333;
   height: 150px;
-  margin: 0 auto;
+  margin:  auto;
   overflow: hidden;
   padding: 10px 0;
   align-items: center;
   justify-content: space-around;
   display: flex;
   float: none;
+}
+.example-card {
+  max-width: 400px;
+  align-items: center;
+  margin: auto;
+}
+
+.example-header-image {
+  background-image:url('../../assets/accoun_icon(192x192).png');
+  background-size: cover;
+  align-items: center;
 }

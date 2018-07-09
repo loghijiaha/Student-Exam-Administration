@@ -1,0 +1,6 @@
+<mat-tab-group>
+  <mat-tab  *ngFor="let m of modules" label={{m}}>
+
+    <h1 *ngFor="let x of dat[m]">{{x}}</h1>
+  </mat-tab>
+</mat-tab-group>

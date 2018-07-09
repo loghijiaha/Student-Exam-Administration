@@ -1,3 +1,46 @@
-<p>
-  edit-result works!
-</p>
+
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Change result for {{module_id}}</legend>
+        <br>
+        <div style=" float: left">
+          <label for="select">Modules &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <select id="select" #select [(ngModel)]="module_id" name="lo" >
+            <option *ngFor="let a of moduleList">{{ a}}</option>
+          </select>
+
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="form-group" style="float:  left">
+          <label for = "index">Index No.&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; </label>
+          <input [(ngModel)]="index"  type="text"
+                 id="index"
+                 placeholder = "Index" name = "first">
+        </div>
+        <br>
+        <br>
+
+        <br>
+
+        <div class="form-group" style="float : left">
+          <label for = "result">Grade&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</label>
+          <input [(ngModel)]="result"  type="text"
+                 id="result"
+                 placeholder = "A or B or C or D or W" name="second">
+        </div>
+        <div class="form-group" style = " float: right ; margin-left: 2cm" >
+          <button type="submit" class="btn btn-primary" (click)="editResult(module_id)">Change</button>
+        </div>
+      </fieldset>
+
+
+
+    </form>
+  </div>
+</div>
+

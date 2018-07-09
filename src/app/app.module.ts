@@ -47,6 +47,7 @@ import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-r
 import { ViewUserInquiriesComponent } from './homepage/home/Admin/view-user-inquiries/view-user-inquiries.component';
 import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/view-repeaters.component';
 import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
+
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },

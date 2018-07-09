@@ -5,16 +5,12 @@
         <legend>Module details</legend>
 
         <mat-list >
-          <mat-list-item *ngFor="let module of moduleDetails" ng-if="module.title!= 'undefined'">
-            <h2 matLine> Title :{{module['title']}} </h2>
-            <span> Module Code : {{module['moduleCode']}} </span>
-
-
-                  <span > Semester :{{module['semester']}} </span>
-
-            <span > Batch :{{module['batch']}} </span>
-
-          </mat-list-item>
+          <mat-card *ngFor="let module of moduleDetails" ng-if="module.title!= 'undefined'">
+            <h2> Title :{{module['title']}} </h2><br>
+            <span> Module Code : {{module['moduleCode']}} </span><br>
+            <span > Semester :{{module['semester']}} </span><br>
+            <span > Batch :{{module['batch']}} </span><br>
+          </mat-card>
         </mat-list>
       </fieldset>
     </form>

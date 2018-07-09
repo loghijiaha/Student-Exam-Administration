@@ -10,7 +10,7 @@ input[type=text], select, textarea {
 }
 
 button[type=submit] {
-  background-color: cornflowerblue;
+
   color: black;
   padding: 12px 20px;
   border: none;
@@ -20,7 +20,7 @@ button[type=submit] {
   font-weight: bold;
 }
 button[type=reset] {
-  background-color:limegreen;
+
   color: black;
   padding: 12px 20px;
   border: none;
@@ -30,15 +30,18 @@ button[type=reset] {
   font-weight: bold;
 }
 button[type=submit]:hover {
-  background-color: blue;
+  background-color: gray;
 }
 button[type=reset]:hover {
-  background-color: green;
+  background-color: gray;
 }
 fieldset{
-  border-color:lightskyblue;
+  background-color: #cccccc;
+  border-color:darkgray;
   width:800px;
-  height: 350px;
+  height: 450px;
   font-size:larger;
-  background-color:aliceblue;
+  padding-left: 20px;
+
 }
+

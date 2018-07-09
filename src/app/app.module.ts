@@ -42,7 +42,8 @@ import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/cre
 import { RegisterNewStudentComponent} from './homepage/home/Admin/register-new-student/register-new-student.component';
 import { RegisterNewLecturerComponent} from './homepage/home/Admin/register-new-lecturer/register-new-lecturer.component';
 import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-repeaters.component';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AlertModule } from 'ngx-bootstrap';
 
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
@@ -128,7 +129,10 @@ const ROUTES: Route[] = [
     MatFormFieldModule,
     ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AlertModule.forRoot(),
+    CarouselModule.forRoot()
+
   ],
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
   providers: [UserService, DatePipe, AuthGuard],

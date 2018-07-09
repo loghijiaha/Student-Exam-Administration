@@ -56,11 +56,11 @@ export class EditProfileComponent implements OnInit {
 
   async pageLoad(){
 
-    let res = await this.http.post(this.rootUrl + 'userInfo', {
-      index: localStorage.getItem('un'),
-      key: localStorage.getItem('key')
-    }).toPromise();
-    let u = 98;
+    //let res = await this.http.post(this.rootUrl + 'userInfo', {
+    //  index: localStorage.getItem('un'),
+    //  key: localStorage.getItem('key')
+   // }).toPromise();
+   // let u = 98;
   }
 
   onEditSubmit(form: NgForm) {

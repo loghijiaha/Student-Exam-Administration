@@ -45,6 +45,9 @@ import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/cre
 import { RegisterNewStudentComponent} from './homepage/home/Admin/register-new-student/register-new-student.component';
 import { RegisterNewLecturerComponent} from './homepage/home/Admin/register-new-lecturer/register-new-lecturer.component';
 import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-repeaters.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AlertModule } from 'ngx-bootstrap';
+
 import { ViewUserInquiriesComponent } from './homepage/home/Admin/view-user-inquiries/view-user-inquiries.component';
 import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/view-repeaters.component';
 import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
@@ -75,6 +78,7 @@ const ROUTES: Route[] = [
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'editResult' , component: EditResultComponent},
           { path: 'moduleDetails' , component: ModuleDetailsComponent},
+
           { path: 'viewMessage' , component: ViewMessagesComponent},
           { path: 'studentDetails' , component: StudentDetailsComponent},
           //admin
@@ -145,13 +149,13 @@ const ROUTES: Route[] = [
     MatCardModule,
     BrowserAnimationsModule, // required animations module
     MatListModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AlertModule.forRoot(),
+    CarouselModule.forRoot()
+
   ],
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
   providers: [UserService, DatePipe, AuthGuard,User],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-

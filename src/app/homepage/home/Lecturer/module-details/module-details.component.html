@@ -1,3 +1,24 @@
-<p>
-  module-details works!
-</p>
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Module details</legend>
+
+        <mat-list >
+          <mat-list-item *ngFor="let module of moduleDetails" ng-if="module.title!= 'undefined'">
+            <h2 matLine> Title :{{module['title']}} </h2>
+            <span> Module Code : {{module['moduleCode']}} </span>
+
+
+                  <span > Semester :{{module['semester']}} </span>
+
+            <span > Batch :{{module['batch']}} </span>
+
+          </mat-list-item>
+        </mat-list>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+

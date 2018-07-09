@@ -1,3 +1,53 @@
-<p>
-  add-results works!
-</p>
+
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Add result for {{module_id}}</legend>
+        <br>
+        <div style=" float: left">
+          <label for="select">NewCourses&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <select id="select" #select [(ngModel)]="module_id" name="lo" >
+            <option *ngFor="let a of moduleList">{{ a}}</option>
+          </select>
+        </div>
+        <div class="form-group" style="float:  left">
+          <label for = "index">Index No.</label>
+          <input [(ngModel)]="index"  type="text"
+                 id="index"
+                 placeholder = "New UserName" name = "first">
+        </div>
+        <div class="form-group" style="float : left">
+          <label for = "result">Grade</label>
+          <input [(ngModel)]="result"  type="text"
+                 id="result"
+                 placeholder = "New UserName" name="second">
+        </div>
+        <div class="form-group" style = " float: right ; margin-left: 2cm" >
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary" (click)="addResult(module_id)">Add</button>
+        </div>
+      </fieldset>
+
+      <div class="container">
+        <h1>Result List</h1><br>
+        <table class="table table-hover" cellspacing="5">
+          <thead>
+          <tr>
+            <th>Index Number</th>
+            <th>Result</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let course of results">
+            <td>{{results['']}}</td>
+            <td>{{results['']}}</td>
+          </tr>sult
+          </tbody>
+        </table>
+      </div>
+
+    </form>
+  </div>
+</div>
+

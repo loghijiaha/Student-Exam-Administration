@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatCardModule} from '@angular/material/card';
 import { Route, RouterModule} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AppRoutingModule } from './/app-routing.module';
+import {MatTabsModule} from '@angular/material/tabs';
 import { HomeComponent } from './homepage/home/home.component';
 import { ProfileComponent } from './homepage/profile/profile.component';
 import { NotificationComponent } from './homepage/notification/notification.component';
@@ -35,7 +37,8 @@ import {AuthGuard} from './auth.guard';
 import {ToastrModule} from 'ngx-toastr';
 import { ModuleDetailsComponent } from './homepage/home/Lecturer/module-details/module-details.component';
 import { EditResultComponent } from './homepage/home/Lecturer/edit-result/edit-result.component';
-
+import {User} from './shared/user.model';
+import {MatListModule} from '@angular/material';
 import { DeleteExamComponent } from './homepage/home/Admin/delete-exam/delete-exam.component';
 import { CreateModuleComponent} from './homepage/home/Admin/create-module/create-module.component';
 import { CreateNewExamComponent} from './homepage/home/Admin/create-new-exam/create-new-exam.component';
@@ -45,6 +48,9 @@ import { AddRepeatersComponent } from './homepage/home/Admin/add-repeaters/add-r
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AlertModule } from 'ngx-bootstrap';
 
+import { ViewUserInquiriesComponent } from './homepage/home/Admin/view-user-inquiries/view-user-inquiries.component';
+import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/view-repeaters.component';
+import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
@@ -62,6 +68,8 @@ const ROUTES: Route[] = [
           { path: 'recorrection' , component: RecorrectionRequestComponent},
           { path: 'exams' , component: ExamsComponent },
           // lecturer
+          { path: 'subUnSubModule' , component: SubUnSubModuleComponent},
+
           { path: 'addMessage' , component: AddMessagesComponent},
           { path: 'addResult' , component: AddResultsComponent},
           { path: 'addMessage' , component: AddMessagesComponent},
@@ -77,6 +85,8 @@ const ROUTES: Route[] = [
           { path: 'createExam' , component: CreateNewExamComponent},
           { path: 'deleteExam' , component: DeleteExamComponent},
           { path: 'addRepeaters' , component: AddRepeatersComponent},
+          { path: 'viewRepeaters' , component: ViewRepeatersComponent},
+          { path: 'viewUserInquiries' , component: ViewUserInquiriesComponent},
 
 
         ] },
@@ -110,11 +120,14 @@ const ROUTES: Route[] = [
     ViewMessagesComponent,
     ModuleDetailsComponent,
     EditResultComponent,
+    SubUnSubModuleComponent,
     DeleteExamComponent,
     CreateNewExamComponent,
     RegisterNewStudentComponent,
     RegisterNewLecturerComponent,
     AddRepeatersComponent,
+    ViewUserInquiriesComponent,
+    ViewRepeatersComponent,
   ],
   imports: [
     BrowserModule,
@@ -122,20 +135,23 @@ const ROUTES: Route[] = [
     AppRoutingModule,
     HttpClientModule,
     MatToolbarModule,
+    MatTabsModule,
     MatInputModule,
     MatTableModule,  PdfViewerModule, FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatCardModule,
     BrowserAnimationsModule, // required animations module
+    MatListModule,
     ToastrModule.forRoot(),
     AlertModule.forRoot(),
     CarouselModule.forRoot()
 
   ],
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
-  providers: [UserService, DatePipe, AuthGuard],
+  providers: [UserService, DatePipe, AuthGuard,User],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

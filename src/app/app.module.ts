@@ -131,6 +131,8 @@ const ROUTES: Route[] = [
     AddRepeatersComponent,
     ViewUserInquiriesComponent,
     ViewRepeatersComponent,
+    //AlertModule,
+    //CarouselModule,
 
   ],
   imports: [

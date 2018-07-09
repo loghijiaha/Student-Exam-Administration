@@ -23,9 +23,9 @@ export class AddResultsComponent implements OnInit {
   public async addResult(value:any){
     let index =  localStorage.getItem('un');
     let result = await this.http.post(this.rootUrl+'addResult',{module_id: value , result :{'result':this.result,'index': this.index} }).toPromise().then(()=>{
-      this.toastr.error("Result Added","Success");
+      this.toastr.success("Result Added","Success", {positionClass: 'toast-bottom-right'});
     },()=>{
-      this.toastr.error("Some problem occured","Error");
+      this.toastr.error("Some problem occured","Error", {positionClass: 'toast-bottom-right'});
 
     });
 
@@ -37,5 +37,21 @@ export class AddResultsComponent implements OnInit {
 
     this.moduleList= result;
     console.log(result);
+  }
+  public async getAllResult(){
+    console.log(this.result);
+
+    let result = await this.http.post(this.rootUrl+'getAllResult',{module_id: this.module_id}).toPromise().then(()=>{
+      this.results= result;
+      console.log(this.result);
+    },()=>{
+      this.toastr.info("No results found","Info", {positionClass: 'toast-bottom-right'});
+
+    });
+
+  }
+  public  async getResult(event){
+    console.log("fdsfdf");
+
   }
 }

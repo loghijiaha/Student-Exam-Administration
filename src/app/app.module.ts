@@ -53,7 +53,6 @@ import { ViewRepeatersComponent } from './homepage/home/Admin/view-repeaters/vie
 import { SubUnSubModuleComponent } from './homepage/home/Lecturer/sub-un-sub-module/sub-un-sub-module.component';
 
 
-
 const ROUTES: Route[] = [
       {path : '' , component: LoginpageComponent },
       {path : 'home' , component: HomeComponent, canActivate: [AuthGuard] },
